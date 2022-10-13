@@ -9,11 +9,6 @@ function startQuiz(){
     questionHolder.classList.remove('hide');
 }
 
-function getQuestion(){
-
-}
-
-
 let questions = [
     {
         question: `What is the name of the film that Al pacino has won his first and only Academy Award?`,
@@ -110,4 +105,28 @@ let questions = [
 
 
 ]
+
+let questionE1 = document.getElementById("question")
+let a_answer = document.getElementById("a-answer");
+let b_answer = document.getElementById("b-answer");
+let c_answer = document.getElementById("c-answer");
+let d_answer = document.getElementById("d-answer");
+
+
+let currentQuiz = 0;
+
+displayQuestion();
+
+function displayQuestion() {
+    let currentQuestion = questions[currentQuiz];
+
+    questionE1.innerText = currentQuestion.question
+    a_answer.innerText = currentQuestion.a
+    b_answer.innerText = currentQuestion.b
+    c_answer.innerText = currentQuestion.c
+    d_answer.innerText = currentQuestion.d
+
+}
+
+
 
