@@ -4,10 +4,18 @@ let questionHolder = document.getElementById("question-holder");
 
 startButton.addEventListener('click', startQuiz);
 
+
+/**
+ * Function for transtion of the welcome menu to the questions
+ */
 function startQuiz(){
     welcome.classList.add("hide");
     questionHolder.classList.remove('hide');
 }
+
+/**
+ * Question for the quiz
+ */
 
 let questions = [
     {
@@ -111,11 +119,15 @@ let a_answer = document.getElementById("a-answer");
 let b_answer = document.getElementById("b-answer");
 let c_answer = document.getElementById("c-answer");
 let d_answer = document.getElementById("d-answer");
-
+let submitBtn = document.getElementById("submit");
 
 let currentQuiz = 0;
 
 displayQuestion();
+
+/**
+ * Function to display the question in the question holder.
+ */
 
 function displayQuestion() {
     let currentQuestion = questions[currentQuiz];
@@ -128,5 +140,12 @@ function displayQuestion() {
 
 }
 
+/**
+ * event listner to go through all the question
+ */
+submitBtn.addEventListener('click', () => {
+    currentQuiz++;
 
+    displayQuestion();
+})
 
