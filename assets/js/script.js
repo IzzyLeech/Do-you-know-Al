@@ -19,11 +19,11 @@ let questions = [
 
     {
         question: `Al Pacino has starred in numerous play's and their movie adaption, although not always playing the same character. 
-        Can you name the film/play where he play's the same character?`,
+        Can you name the film/play where he doesn't play's the same character?`,
         a: `Glengarry Glen Ross`,
         b: `Salome`,
         c: `The Merchant of Venice`,
-        d: `Julius Caesar`,
+        d: `Richard III`,
         answer: `c`
     },
     
@@ -44,9 +44,52 @@ let questions = [
         c: `Carlito Brigante (Carlito's Way)`,
         d: `Captain Willard (Apocalypse Now)`,
         answer: `c`
-    }
+    },
 
-    
+    {
+        question: `Al Pacino starred in the 2019 film The Irishman directed by Martin Scorsese, can you pick the labour union leader that he played?`,
+        a: `Jimmy Hoffa`,
+        b: `Russel Bufalino`,
+        c: `Frank Sheeran`,
+        d: `Angelo Bruno`,
+        answer: `a`
+    },
+
+    {
+        question: `Al Pacino plays the character of Lefty Ruggiero in the 1997 film Donnie Brasco, can you pick the actor who co-star as the character of the movie title?`,
+        a: `Kevin Costner`,
+        b: `Dustin Hoffman`,
+        c: `Johnny Depp`,
+        d: `Russell Crowe`,
+        answer: `c`
+    },
+
+    {
+        question: `Al Pacino has worked with many reowned director throughout his career, can you pick the director he hasn't work with?`,
+        a: `Ridley Scott`,
+        b: `Quentin Tarantino`,
+        c: `Oliver Stone`,
+        d: `Steven Spielberg`,
+        answer: `d`
+    },
+
+    {
+        question: `Al Pacino has starred alongside Robin Williams in a 2002 psychological thriller that was directed by Christopher Nolan, can you pick that film?`,
+        a: `Seven`,
+        b: `Memento`,
+        c: `The Prestige`,
+        d: `Insomnia`,
+        answer: `d`
+    },
+
+    {
+        question: `Al Pacino has played himself in one film that starred Adam Sandler, can you pick that film?`,
+        a:`Big Daddy`,
+        b: `Mr. Deeds`,
+        c: `Jack and Jill`,
+        d: `The Waterboy`,
+        answer: `c`
+    }
 
 
 
