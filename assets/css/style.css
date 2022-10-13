@@ -50,4 +50,5 @@ ul {
     text-transform: uppercase;
     background-color: gold;
     font-size: 16px;
+    cursor: pointer;
 }
