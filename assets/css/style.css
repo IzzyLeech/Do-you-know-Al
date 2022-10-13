@@ -39,3 +39,15 @@ ul {
     list-style:upper-alpha;
     padding: 5px;
 }
+
+
+#submit {
+    width: 150px;
+    height: 75px;
+    border-radius: 10px;
+    border: 5px solid black;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: gold;
+    font-size: 16px;
+}
