@@ -1,3 +1,19 @@
+let startButton = document.getElementById('start-btn');
+let welcome = document.getElementById("welcome");
+let questionHolder = document.getElementById("question-holder");
+
+startButton.addEventListener('click', startQuiz);
+
+function startQuiz(){
+    welcome.classList.add("hide");
+    questionHolder.classList.remove('hide');
+}
+
+function getQuestion(){
+
+}
+
+
 let questions = [
     {
         question: `What is the name of the film that Al pacino has won his first and only Academy Award?`,
