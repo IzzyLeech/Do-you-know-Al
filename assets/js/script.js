@@ -1,7 +1,7 @@
 let startButton = document.getElementById('start-btn');
 let welcome = document.getElementById("welcome");
 let questionHolder = document.getElementById("question-holder");
-
+let scoreContainer = document.getElementById("score-container")
 /**
   * Button difficulty selected
   */
@@ -177,6 +177,12 @@ function displayQuestion() {
 submitBtn.addEventListener('click', () => {
     currentQuiz++;
 
-    displayQuestion();
-})
+    if (currentQuiz < questions.length){
+        displayQuestion();
+    } else { 
+       questionHolder.classList.add('hide');
+       scoreContainer.classList.remove("hide");
+}
+
+});
 
