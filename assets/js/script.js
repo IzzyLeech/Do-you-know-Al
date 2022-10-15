@@ -50,6 +50,19 @@ function startQuiz(){
     let name = document.getElementById("username").value;
     document.getElementById("post").innerHTML = "Username:" + name ;
     
+    let startTime = 10;
+    let time = startTime * 60;
+    let timer = document.getElementById("timer");
+
+    setInterval(countDown, 1000);
+
+    function countDown() {
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    timer.innerHTML = `${minutes}: ${seconds}`;
+    time--;
+}
 }
 
 /**
@@ -195,18 +208,3 @@ submitBtn.addEventListener('click', () => {
 }
 
 });
-
-let startTime = 10;
-let time = startTime * 60;
-
-let timer = document.getElementById("timer");
-
-setInterval(countDown, 1000);
-
-function countDown() {
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-
-    timer.innerHTML = `${minutes}: ${seconds}`;
-    time--;
-}
