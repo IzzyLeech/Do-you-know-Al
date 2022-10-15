@@ -17,10 +17,14 @@ function startQuiz(){
 
     welcome.classList.add("hide");
     questionHolder.classList.remove('hide');
-    
+
     let name = document.getElementById("username").value;
-    console.log("Username:", name);
+    document.getElementById("post").innerHTML = "Username:" + name ;
+
 }
+
+
+
 
 /**
  * Question for the quiz
