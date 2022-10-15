@@ -3,8 +3,8 @@ let welcome = document.getElementById("welcome");
 let questionHolder = document.getElementById("question-holder");
 
 
-
 startButton.addEventListener('click', startQuiz);
+
 function play() {
 let audio = document.getElementById("al");
 audio.play();
@@ -14,8 +14,12 @@ audio.play();
  * Function for transtion of the welcome menu to the questions
  */
 function startQuiz(){
+
     welcome.classList.add("hide");
     questionHolder.classList.remove('hide');
+    
+    let name = document.getElementById("username").value;
+    console.log("Username:", name);
 }
 
 /**
