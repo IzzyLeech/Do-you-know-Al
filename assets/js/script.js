@@ -3,8 +3,8 @@ let welcome = document.getElementById("welcome");
 let questionHolder = document.getElementById("question-holder");
 
 
-startButton.addEventListener('click', startQuiz);
 
+startButton.addEventListener('click', startQuiz);
 function play() {
 let audio = document.getElementById("al");
 audio.play();
