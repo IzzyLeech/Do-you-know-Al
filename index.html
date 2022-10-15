@@ -17,9 +17,9 @@
     <input type="text" name="username" id="username" onkeyup="typeUsername()" placeholder="Enter Username">
     </div>
     <div>
-        <button class="btn selected diff-btn"><input type="radio" name="diff" class="radio">Easy</button>
-        <button class="btn diff-btn"><input type="radio" name="diff" class="radio">Medium</button>
-        <button class="btn diff-btn"><input type="radio" name="diff" class="radio">Hard</button>
+        <button class="btn selected diff-btn">Easy</button>
+        <button class="btn diff-btn">Medium</button>
+        <button class="btn diff-btn">Hard</button>
     </div>
     <button id="start-btn" type="submit" class="btn" onclick="play()" disabled>Start</button>
     <audio src="assets/audio/glengary yfs.mp3" id="al"></audio>
@@ -33,10 +33,11 @@
         <li><label for="c" id="c-answer">possible answer</label><input type="radio" name="answer" id="c"></li>
         <li><label for="d" id="d-answer">possible answer</label><input type="radio" name="answer" id="d"></li>
     </ul>
+    <div id="timer">1:00</div>
     <button id="submit" class="btn">Submit</button>
 </div>
 <div id="score-hold"></div>
-<div id="timer"></div>
+
 
 <div id="score-container" class="hide">
     <p>you scored </p>
