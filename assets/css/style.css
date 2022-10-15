@@ -47,6 +47,14 @@ body {
     cursor: pointer;
 }
 
+.btn.selected {
+    background-color: green;
+}
+
+.radio {
+    display: none;
+}
+
 .hide{
     display: none;
 }

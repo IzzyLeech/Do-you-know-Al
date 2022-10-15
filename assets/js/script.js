@@ -2,6 +2,27 @@ let startButton = document.getElementById('start-btn');
 let welcome = document.getElementById("welcome");
 let questionHolder = document.getElementById("question-holder");
 
+/**
+  * Button difficulty selected
+  */
+
+let button = document.getElementsByClassName("diff-btn");
+	
+		let addSelectClass = function(){
+			removeSelectClass();
+			this.classList.add('selected');	
+		}
+
+		let removeSelectClass = function(){
+			for (let i = 0; i < button.length; i++) {
+				button[i].classList.remove('selected')
+			}
+		}
+		
+		for (let i = 0; i < button.length; i++) {
+			button[i].addEventListener("click",addSelectClass);
+		}
+
 
 startButton.addEventListener('click', startQuiz);
 
