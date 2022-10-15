@@ -16,19 +16,24 @@
     <label for="username">Enter your Username</label>
     <input type="text" name="username" id="username">
     </div>
-    <button id="start-btn" onclick="play()">Start</button>
+    <div>
+        <button class="btn"><input type="radio" name="diff">Easy</button>
+        <button class="btn"><input type="radio" name="diff">Medium</button>
+        <button class="btn"><input type="radio" name="diff">Hard</button>
+    </div>
+    <button id="start-btn"  class="btn" onclick="play()">Start</button>
     <audio src="assets/audio/glengary yfs.mp3" id="al"></audio>
     </div>
 <div id="question-holder" class="hide">
     <p id="post"></p>
     <p id="question">Question placement</p>
     <ul>
-        <li><label for="a" id="a-answer">possible answer</label><input type="radio" id="a"></li>
-        <li><label for="b" id="b-answer">possible answer</label><input type="radio" id="b"></li>
-        <li><label for="c" id="c-answer">possible answer</label><input type="radio" id="c"></li>
-        <li><label for="d" id="d-answer">possible answer</label><input type="radio" id="d"></li>
+        <li><label for="a" id="a-answer">possible answer</label><input type="radio" name="answer" id="a"></li>
+        <li><label for="b" id="b-answer">possible answer</label><input type="radio" name="answer" id="b"></li>
+        <li><label for="c" id="c-answer">possible answer</label><input type="radio" name="answer" id="c"></li>
+        <li><label for="d" id="d-answer">possible answer</label><input type="radio" name="answer" id="d"></li>
     </ul>
-    <button id="submit">Submit</button>
+    <button id="submit" class="btn">Submit</button>
 </div>
 <div id="score-hold"></div>
 <div id="timer"></div>

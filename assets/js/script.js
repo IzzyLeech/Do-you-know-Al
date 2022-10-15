@@ -23,9 +23,6 @@ function startQuiz(){
 
 }
 
-
-
-
 /**
  * Question for the quiz
  */
