@@ -31,6 +31,14 @@ let audio = document.getElementById("al");
 audio.play();
 }
 
+function typeUsername (){
+    if(document.getElementById("username").value===""){
+        document.getElementById("start-btn").disabled = true;
+    } else {
+        document.getElementById("start-btn").disabled = false;
+    }
+}
+
 /**
  * Function for transtion of the welcome menu to the questions
  */
@@ -41,7 +49,7 @@ function startQuiz(){
 
     let name = document.getElementById("username").value;
     document.getElementById("post").innerHTML = "Username:" + name ;
-
+    
 }
 
 /**
@@ -173,6 +181,7 @@ function displayQuestion() {
 
 /**
  * event listner to go through all the question
+ * and transtion to score container when finished
  */
 submitBtn.addEventListener('click', () => {
     currentQuiz++;
@@ -182,6 +191,7 @@ submitBtn.addEventListener('click', () => {
     } else { 
        questionHolder.classList.add('hide');
        scoreContainer.classList.remove("hide");
+
 }
 
 });
