@@ -22,20 +22,26 @@ let button = document.getElementsByClassName("diff-btn");
 		for (let i = 0; i < button.length; i++) {
 			button[i].addEventListener("click",addSelectClass);
 		}
-
+        
 
 startButton.addEventListener('click', startQuiz);
-
-function play() {
-let audio = document.getElementById("al");
-audio.play();
-}
 
 function typeUsername (){
     if(document.getElementById("username").value===""){
         document.getElementById("start-btn").disabled = true;
     } else {
         document.getElementById("start-btn").disabled = false;
+    }
+}
+
+function play() {
+    if (document.getElementById("start-btn").disabled = false){
+        let waste = document.getElementById("waste-time");
+        waste.play();
+    } else {
+        let al = document.getElementById("al")
+        al.play()
+    
     }
 }
 
@@ -62,7 +68,7 @@ function startQuiz(){
 
     timer.innerHTML = `${minutes}: ${seconds}`;
     time--;
-}
+    }
 }
 
 /**
