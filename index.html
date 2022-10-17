@@ -16,11 +16,22 @@
     <label for="username">Enter your Username</label>
     <input type="text" name="username" id="username" onkeyup="typeUsername()" placeholder="Enter Username">
     </div>
-    <div>
-        <button class="btn selected diff-btn">Easy</button>
-        <button class="btn diff-btn">Medium</button>
-        <button class="btn diff-btn">Hard</button>
+
+    <div id="difficulty">
+        <div>
+            <input type="radio" name="difficulty" id="easy-diff">
+            <label for="easy-diff">Easy</label>
+        </div>
+        <div>
+            <input type="radio" name="difficulty" id="medium-diff">
+            <label for="medium-diff">Medium</label>
+        </div>
+        <div>
+            <input type="radio" name="difficulty" id="hard-diff">
+            <label for="hard-diff">Hard</label>
+        </div>
     </div>
+
     <button id="start-btn" type="submit" class="btn" onclick="play(), typeUsername()" disabled>Start</button>
     <audio src="assets/audio/al-give-me-all you-got.mp3" id="give-me"></audio>
     <audio src="assets/audio/al-dont-waste-mytime.mp3" id="waste-time"></audio>
