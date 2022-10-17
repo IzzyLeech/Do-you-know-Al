@@ -2,6 +2,10 @@ let startButton = document.getElementById('start-btn');
 let welcome = document.getElementById("welcome");
 let questionHolder = document.getElementById("question-holder");
 let scoreContainer = document.getElementById("score-container")
+let answers = document.querySelectorAll(".answer");
+
+let currentQuiz = 0;
+let score = 0;
 /**
   * Button difficulty selected
   */
@@ -29,19 +33,19 @@ startButton.addEventListener('click', startQuiz);
 function typeUsername (){
     if(document.getElementById("username").value===""){
         document.getElementById("start-btn").disabled = true;
+        
     } else {
         document.getElementById("start-btn").disabled = false;
     }
 }
 
 function play() {
-    if (document.getElementById("start-btn").disabled = false){
-        let waste = document.getElementById("waste-time");
-        waste.play();
+    if(document.getElementById("username").value===""){
+        let give = document.getElementById("give-me")
+        give.play()
     } else {
-        let al = document.getElementById("al")
-        al.play()
-    
+        let waste = document.getElementById("waste-time");
+        waste.play()
     }
 }
 
@@ -69,6 +73,8 @@ function startQuiz(){
     timer.innerHTML = `${minutes}: ${seconds}`;
     time--;
     }
+
+
 }
 
 /**
@@ -179,7 +185,7 @@ let c_answer = document.getElementById("c-answer");
 let d_answer = document.getElementById("d-answer");
 let submitBtn = document.getElementById("submit");
 
-let currentQuiz = 0;
+
 
 displayQuestion();
 
@@ -188,6 +194,8 @@ displayQuestion();
  */
 
 function displayQuestion() {
+    deselectAnswer();
+
     let currentQuestion = questions[currentQuiz];
 
     questionE1.innerText = currentQuestion.question
@@ -198,19 +206,47 @@ function displayQuestion() {
 
 }
 
+function selectedAnswer() {
+
+    let answer = undefined;
+
+    answers.forEach(answers => {
+        if(answers.checked){
+            answer = answers.id;
+        }
+    })
+
+    return answer
+}
+
+function deselectAnswer(){
+    answers.forEach(answers => {
+        answers.checked = false;
+});
+}
+
 /**
- * event listner to go through all the question
- * and transtion to score container when finished
+ * event listner and loopto go through all the question and answer to
+ *  transtion to score container when finished
  */
 submitBtn.addEventListener('click', () => {
-    currentQuiz++;
 
-    if (currentQuiz < questions.length){
-        displayQuestion();
+    let answer = selectedAnswer();
+
+    if(answer){
+        if (answer === questions[currentQuiz].answer) {
+            score++;
+        }
+
+        currentQuiz++;
+        if (currentQuiz < questions.length) {
+            displayQuestion();
     } else { 
-       questionHolder.classList.add('hide');
-       scoreContainer.classList.remove("hide");
+        questionHolder.classList.add('hide');
+        scoreContainer.classList.remove("hide");
 
+        scoreContainer.innerHTML = `<h2>You answered correctly ${score}/${questions.length} questions.</h2>`;
+    }
 }
 
 });

@@ -21,18 +21,18 @@
         <button class="btn diff-btn">Medium</button>
         <button class="btn diff-btn">Hard</button>
     </div>
-    <button id="start-btn" type="submit" class="btn" onclick="play()" disabled>Start</button>
-    <audio src="assets/audio/glengary yfs.mp3" id="al"></audio>
+    <button id="start-btn" type="submit" class="btn" onclick="play(), typeUsername()" disabled>Start</button>
+    <audio src="assets/audio/al-give-me-all you-got.mp3" id="give-me"></audio>
     <audio src="assets/audio/al-dont-waste-mytime.mp3" id="waste-time"></audio>
     </div>
 <div id="question-holder" class="hide">
     <p id="post"></p>
     <p id="question">Question placement</p>
     <ul>
-        <li><label for="a" id="a-answer">possible answer</label><input type="radio" name="answer" id="a"></li>
-        <li><label for="b" id="b-answer">possible answer</label><input type="radio" name="answer" id="b"></li>
-        <li><label for="c" id="c-answer">possible answer</label><input type="radio" name="answer" id="c"></li>
-        <li><label for="d" id="d-answer">possible answer</label><input type="radio" name="answer" id="d"></li>
+        <li><label for="a" id="a-answer">possible answer</label><input type="radio" name="answer" id="a" class="answer"></li>
+        <li><label for="b" id="b-answer">possible answer</label><input type="radio" name="answer" id="b" class="answer"></li>
+        <li><label for="c" id="c-answer">possible answer</label><input type="radio" name="answer" id="c" class="answer"></li>
+        <li><label for="d" id="d-answer">possible answer</label><input type="radio" name="answer" id="d" class="answer"></li>
     </ul>
     <div id="timer">1:00</div>
     <button id="submit" class="btn">Submit</button>
