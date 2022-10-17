@@ -6,6 +6,7 @@ let answers = document.querySelectorAll(".answer");
 
 let currentQuiz = 0;
 let score = 0;
+
 /**
   * Button difficulty selected
   */
@@ -59,8 +60,10 @@ function startQuiz(){
 
     let name = document.getElementById("username").value;
     document.getElementById("post").innerHTML = "Username:" + name ;
+
+
     
-    let startTime = 10;
+    let startTime = 1;
     let time = startTime * 60;
     let timer = document.getElementById("timer");
 
@@ -81,7 +84,7 @@ function startQuiz(){
  * Question for the quiz
  */
 
-let questions = [
+let questionsHard = [
     {
         question: `What is the name of the film that Al pacino has won his first and only Academy Award?`,
         a: `Dog Day Afternoon`,
@@ -167,7 +170,7 @@ let questions = [
 
     {
         question: `Al Pacino has played himself in one film that starred Adam Sandler, can you pick that film?`,
-        a:`Big Daddy`,
+        a: `Big Daddy`,
         b: `Mr. Deeds`,
         c: `Jack and Jill`,
         d: `The Waterboy`,
@@ -177,6 +180,101 @@ let questions = [
 
 
 ]
+
+let questionsMedium = [
+
+    {
+        question: `Al Pacino has starred in the The Godfather Trilogy, can you name the charter he portrays?`,
+        a: `Fredo Corleone`,
+        b: `Michael Corleone`,
+        c: `Tom Hagen`,
+        d: `Sonny Corleone`,
+        answer: `b`
+    },
+
+    {
+        question: `Al Pacino plays as Alphonse "Big Boy" Caprice in which 1990 film that is based on a comic strip that is actively running today?`,
+        a: `Flash Gordon`,
+        b: `The Phantom`,
+        c: `Popeye`,
+        d: `Dick Tracy`,
+        answer: `d`
+    },
+
+    {
+        question: `Al Pacino starred alongside which actor in The Devil's Advocate, that is known for films such as Point Break, Speed and The Matrix?`,
+        a: `Keanu Reeves`,
+        b: `Patrick Swayze`,
+        c: `Jeff Daniels`,
+        d: `Joe Pantoliano`,
+        answer: `a`
+    },
+
+    {
+        question: `Al Pacino starred in the 1973 film Serpico that was director by which director?`,
+        a: `Sidney Lumet`,
+        b: `David Lean`,
+        c: `Mel Brooks`,
+        d: `Alfred Hitchcock`,
+        answer: `a`
+    },
+
+    {
+        question: `Al Pacino starred in the play Julius Caesar that was written by which famous writer?`,
+        a: `Samuel Beckett`,
+        b: `Friedrich Schiller`,
+        c: `Jean-Paul Sartre`,
+        d: `William Shakespeare`,
+        answer: `c`
+    },
+
+    {
+        question: `Al Pacino won an Primetime Emmy Award for Outstanding Lead Actor in a Limited movie for which television film?  `,
+        a: `You Don't Know Jack `,
+        b: `Phil Spector`,
+        c: `Paterno`,
+        d: `Hunters`,
+        answer: `a`
+    },
+
+    {
+        question: `Al Pacino has starred alongside John Cazale in how many film?`,
+        a: `1`,
+        b: `2`,
+        c: `3`,
+        d: `4`,
+        answer: `c`
+    },
+
+    {
+        question: `Al Pacino starred alongside which rapper in the 2008 film Righteous Kill?`,
+        a: `The Game`,
+        b: `50 Cent`,
+        c: `Ja Rule `,
+        d: `Rick Ross`,
+        answer: `b`
+    },
+
+    {
+        question: `Al Pacino has direted which 2000 independent film that is adapted from a Ira Lewis play?`,
+        a: `People I Know`,
+        b: `Chinese Coffe`,
+        c: `Manglehorn`,
+        d: `City Hall`,
+        answer: `b`
+    },
+
+    {
+        question: `Al Pacino is known for many of his famous movie quotes, can you finish this quote? "Every dog has his ? " `,
+        a: `Dinner`,
+        b: `Truth`,
+        c: `Day`,
+        d: `Enemies`,
+        answer: `c`
+    }
+]
+
+let questionEasy
 
 let questionE1 = document.getElementById("question")
 let a_answer = document.getElementById("a-answer");
@@ -196,7 +294,7 @@ displayQuestion();
 function displayQuestion() {
     deselectAnswer();
 
-    let currentQuestion = questions[currentQuiz];
+    let currentQuestion = questionsHard[currentQuiz];
 
     questionE1.innerText = currentQuestion.question
     a_answer.innerText = currentQuestion.a
@@ -233,19 +331,20 @@ submitBtn.addEventListener('click', () => {
 
     let answer = selectedAnswer();
 
+
     if(answer){
-        if (answer === questions[currentQuiz].answer) {
+        if (answer === questionsHard[currentQuiz].answer) {
             score++;
         }
 
         currentQuiz++;
-        if (currentQuiz < questions.length) {
+        if (currentQuiz < questionsHard.length) {
             displayQuestion();
     } else { 
         questionHolder.classList.add('hide');
         scoreContainer.classList.remove("hide");
-
-        scoreContainer.innerHTML = `<h2>You answered correctly ${score}/${questions.length} questions.</h2>`;
+        
+        scoreContainer.innerHTML = `<h2>${name} answered correctly ${score}/${questionsHard.length} questions.</h2>`;
     }
 }
 
