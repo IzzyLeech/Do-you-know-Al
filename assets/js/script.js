@@ -4,14 +4,19 @@ let questionHolder = document.getElementById("question-holder");
 let scoreContainer = document.getElementById("score-container")
 let answers = document.querySelectorAll(".answer");
 
-let easyDifficulty = document.getElementById("easy-diff")
-let mediumDifficulty = document.getElementById("medium-diff")
-let hardDifficulty = document.getElementById("hard-diff")
+let easyDifficulty = document.getElementById("easy-diff");
+let mediumDifficulty = document.getElementById("medium-diff");
+let hardDifficulty = document.getElementById("hard-diff");
 let difficultyLevel = "";
 
 let currentQuiz = 0;
 let score = 0;
 
+let diffChecked = false
+let difficulty = document.querySelectorAll('[name="difficulty"]');
+let username = document.querySelector('#username');
+
+//let filteredQuestions   =  questions.filter(question => question.difficulty === difficultyLevel)
 let questionsHard = [
     {
         question: `Al Pacino starred in the 1975 film Dog Day Afternoon that is the true story of a bank robbery gone bad. Where did the attempted robbery take place?`,
@@ -19,7 +24,8 @@ let questionsHard = [
         b: `Los Angeles`,
         c: `Boston`,
         d: `New York`,
-        answer: `d`
+        answer: `d`,
+    
     },
 
     {
@@ -289,18 +295,30 @@ let questionsEasy = [
 /**
   * Button difficulty selected
   */
+
+
 startButton.addEventListener('click', startQuiz);
 
-function typeUsername (){
-    if(document.getElementById("username").value===""){
-        document.getElementById("start-btn").disabled = true;
-        
+username.addEventListener('input', function() {
+    validateInput();    
+})
+
+difficulty.forEach(function(item){
+    item.addEventListener('click', function(){
+        diffChecked = true;
+        validateInput();
+    })
+})
+
+function validateInput() {
+    if (username.value && diffChecked){
+        startButton.disabled = false;
     } else {
-        document.getElementById("start-btn").disabled = false;
+        startButton.disabled = true
     }
 }
 
-function play() {
+/*function play() {
     if(document.getElementById("username").value===""){
         let give = document.getElementById("give-me")
         give.play()
@@ -308,7 +326,7 @@ function play() {
         let waste = document.getElementById("waste-time");
         waste.play()
     }
-} 
+}*/
 
 /**
  * Function for transtion of the welcome menu to the questions
@@ -318,11 +336,9 @@ function startQuiz(){
     welcome.classList.add("hide");
     questionHolder.classList.remove('hide');
 
-    let name = document.getElementById("username").value;
-    document.getElementById("post").innerHTML = "Username:" + name ;
+    let username = document.getElementById("username").value;
+    document.getElementById("post").innerHTML = "Username:" + username ;
 
-
-    
     let startTime = 1;
     let time = startTime * 60;
     let timer = document.getElementById("timer");
@@ -377,6 +393,8 @@ function displayHardQuestion (){
     c_answer.innerText = currentQuestion.c
     d_answer.innerText = currentQuestion.d
 
+    deselectAnswer();
+
 }
 
 function displayMediumQuestion(){
@@ -388,6 +406,9 @@ function displayMediumQuestion(){
     b_answer.innerText = currentQuestion.b
     c_answer.innerText = currentQuestion.c
     d_answer.innerText = currentQuestion.d
+
+    deselectAnswer();
+
 }
 
 function displayEasyQuestion(){
@@ -399,6 +420,9 @@ function displayEasyQuestion(){
     b_answer.innerText = currentQuestion.b
     c_answer.innerText = currentQuestion.c
     d_answer.innerText = currentQuestion.d
+
+    deselectAnswer();
+
 }
 
 displayQuestion();
@@ -414,8 +438,6 @@ function displayQuestion () {
     } else if (pickDifficulty === "hard"){
         return displayHardQuestion;
     }
-
-    deselectAnswer();
 
     questionE1.innerText = currentQuestion.question
     a_answer.innerText = currentQuestion.a
@@ -444,28 +466,55 @@ function deselectAnswer(){
 });
 }
 
-/**
- * event listner and loopto go through all the question and answer to
- *  transtion to score container when finished
- */
-submitBtn.addEventListener('click', () => {
+function endQuiz(){
+        questionHolder.classList.add('hide');
+            scoreContainer.classList.remove("hide");
+    
+            scoreContainer.innerHTML = `<h2>${username.value} answered correctly ${score}/${questionsHard.length} questions.</h2>`;
+}
 
+function nextQuestion (){
+    
     let answer = selectedAnswer();
-
 
     if(answer){
         if (answer === questionsHard[currentQuiz].answer)  {
             score++;
         }
-        currentQuiz++;
+
+    currentQuiz++;
         if (currentQuiz < questionsHard.length) {
-            displayQuestion();
-    } else { 
-        questionHolder.classList.add('hide');
-        scoreContainer.classList.remove("hide");
-        
-        scoreContainer.innerHTML = `<h2>${name} answered correctly ${score}/${questionsHard.length} questions.</h2>`;
-    }
+        displayHardQuestion();
+    } else endQuiz() 
 }
 
-});
+else if(answer){
+        if (answer === questionsMedium[currentQuiz].answer)  {
+            score++;
+        }
+
+    currentQuiz++;
+        if (currentQuiz < questionsMedium.length) {
+            displayMediumQuestion();
+        
+    } else endQuiz() 
+}
+
+else if (answer){
+        if (answer === questionsEasy[currentQuiz].answer)  {
+            score++;
+        }
+
+    currentQuiz++;
+        if (currentQuiz < questionsEasy.length) {
+            displayEasyQuestion();
+        
+    } else endQuiz() 
+}
+}       
+
+/**
+ * event listner and loopto go through all the question and answer to
+ *  transtion to score container when finished
+ */
+submitBtn.addEventListener('click', nextQuestion);
