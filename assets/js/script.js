@@ -311,12 +311,15 @@ difficulty.forEach(function(item){
 })
 
 function validateInput() {
-    if (username.value && diffChecked){
+    if (username.value.trim().length && diffChecked ){
         startButton.disabled = false;
     } else {
         startButton.disabled = true
     }
 }
+
+
+
 
 /*function play() {
     if(document.getElementById("username").value===""){
