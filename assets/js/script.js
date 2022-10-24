@@ -9,6 +9,8 @@ let mediumDifficulty = document.getElementById("medium-diff");
 let hardDifficulty = document.getElementById("hard-diff");
 let difficultyLevel = "";
 
+let questionCounter = 1;
+let maxQuestion = 10
 let currentQuiz = 0;
 let score = 0;
 
@@ -16,8 +18,9 @@ let diffChecked = false
 let difficulty = document.querySelectorAll('[name="difficulty"]');
 let username = document.querySelector('#username');
 
-//let filteredQuestions   =  questions.filter(question => question.difficulty === difficultyLevel)
-let questionsHard = [
+
+
+let questions = [
     {
         question: `Al Pacino starred in the 1975 film Dog Day Afternoon that is the true story of a bank robbery gone bad. Where did the attempted robbery take place?`,
         a: `Chicago`,
@@ -25,6 +28,7 @@ let questionsHard = [
         c: `Boston`,
         d: `New York`,
         answer: `d`,
+        difficulty:`hard`
     
     },
 
@@ -34,7 +38,8 @@ let questionsHard = [
         b: `Heat`,
         c: `The Godfather Part II`,
         d: `The Irishman`,
-        answer: `b`
+        answer: `b`,
+        difficulty:`hard`
     },
 
     {
@@ -44,7 +49,8 @@ let questionsHard = [
         b: `Salome`,
         c: `The Merchant of Venice`,
         d: `Richard III`,
-        answer: `c`
+        answer: `c`,
+        difficulty:`hard`
     },
     
     {
@@ -55,6 +61,7 @@ let questionsHard = [
         c: `Mel Gibson`,
         d: `Steven Spielberg`,
         answer: `b`,
+        difficulty:`hard`
     },
 
     {
@@ -63,7 +70,8 @@ let questionsHard = [
         b: `Ted Kramer (Kramer vs. Kramer)`,
         c: `Carlito Brigante (Carlito's Way)`,
         d: `Captain Willard (Apocalypse Now)`,
-        answer: `c`
+        answer: `c`,
+        difficulty:`hard`
     },
 
     {
@@ -72,7 +80,8 @@ let questionsHard = [
         b: `Russel Bufalino`,
         c: `Frank Sheeran`,
         d: `Angelo Bruno`,
-        answer: `a`
+        answer: `a`,
+        difficulty:`hard`
     },
 
     {
@@ -81,7 +90,8 @@ let questionsHard = [
         b: `Dustin Hoffman`,
         c: `Johnny Depp`,
         d: `Russell Crowe`,
-        answer: `c`
+        answer: `c`,
+        difficulty:`hard`
     },
 
     {
@@ -90,7 +100,8 @@ let questionsHard = [
         b: `Quentin Tarantino`,
         c: `Oliver Stone`,
         d: `Steven Spielberg`,
-        answer: `d`
+        answer: `d`,
+        difficulty:`hard`
     },
 
     {
@@ -99,7 +110,8 @@ let questionsHard = [
         b: `Memento`,
         c: `The Prestige`,
         d: `Insomnia`,
-        answer: `d`
+        answer: `d`,
+        difficulty:`hard`
     },
 
     {
@@ -108,14 +120,9 @@ let questionsHard = [
         b: `Mr. Deeds`,
         c: `Jack and Jill`,
         d: `The Waterboy`,
-        answer: `c`
-    }
-
-
-
-]
-
-let questionsMedium = [
+        answer: `c`,
+        difficulty:`hard`
+    },
 
     {
         question: `Al Pacino has starred in the The Godfather Trilogy, can you name the charter he portrays?`,
@@ -123,7 +130,9 @@ let questionsMedium = [
         b: `Michael Corleone`,
         c: `Tom Hagen`,
         d: `Sonny Corleone`,
-        answer: `b`
+        answer: `b`,
+        difficulty:`medium`
+
     },
 
     {
@@ -132,7 +141,8 @@ let questionsMedium = [
         b: `The Phantom`,
         c: `Popeye`,
         d: `Dick Tracy`,
-        answer: `d`
+        answer: `d`,
+        difficulty:`medium`
     },
 
     {
@@ -141,7 +151,8 @@ let questionsMedium = [
         b: `Patrick Swayze`,
         c: `Jeff Daniels`,
         d: `Joe Pantoliano`,
-        answer: `a`
+        answer: `a`,
+        difficulty:`medium`
     },
 
     {
@@ -150,7 +161,8 @@ let questionsMedium = [
         b: `David Lean`,
         c: `Mel Brooks`,
         d: `Alfred Hitchcock`,
-        answer: `a`
+        answer: `a`,
+        difficulty:`medium`
     },
 
     {
@@ -159,7 +171,8 @@ let questionsMedium = [
         b: `Friedrich Schiller`,
         c: `Jean-Paul Sartre`,
         d: `William Shakespeare`,
-        answer: `c`
+        answer: `c`,
+        difficulty:`medium`
     },
 
     {
@@ -168,7 +181,8 @@ let questionsMedium = [
         b: `Phil Spector`,
         c: `Paterno`,
         d: `Hunters`,
-        answer: `a`
+        answer: `a`,
+        difficulty:`medium`
     },
 
     {
@@ -177,7 +191,8 @@ let questionsMedium = [
         b: `2`,
         c: `3`,
         d: `4`,
-        answer: `c`
+        answer: `c`,
+        difficulty:`medium`
     },
 
     {
@@ -186,7 +201,8 @@ let questionsMedium = [
         b: `50 Cent`,
         c: `Ja Rule `,
         d: `Rick Ross`,
-        answer: `b`
+        answer: `b`,
+        difficulty:`medium`
     },
 
     {
@@ -195,7 +211,8 @@ let questionsMedium = [
         b: `Chinese Coffe`,
         c: `Manglehorn`,
         d: `City Hall`,
-        answer: `b`
+        answer: `b`,
+        difficulty:`medium`
     },
 
     {
@@ -204,18 +221,18 @@ let questionsMedium = [
         b: `Truth`,
         c: `Day`,
         d: `Enemies`,
-        answer: `c`
-    }
-]
+        answer: `c`,
+        difficulty:`medium`
+    },
 
-let questionsEasy = [
     {
         question:`Al Pacino starred as which character in the 1983 film Scarface?`,
         a:`Indiana Jones`,
         b:`James Bond`,
         c:`Tony Montana`,
         d:`Harry Potter`,
-        answer:`c`
+        answer:`c`,
+        difficulty:`easy`
     },
     {
         question: `What is the name of the film that Al pacino has won his first and only Academy Award?`,
@@ -223,7 +240,9 @@ let questionsEasy = [
         b: `The Godfather Part II`,
         c: `Serpico`,
         d: `Scent of a Woman`,
-        answer: `d`
+        answer: `d`,
+        difficulty:`easy`
+
     },
     {
         question:`Al Pacino has not starrted in one of these movies, can you you pick the right movie?`,
@@ -231,7 +250,9 @@ let questionsEasy = [
         b:`Any Given Sunday`,
         c:`Casino`,
         d:`Carlito's way`,
-        answer:`c`
+        answer:`c`,
+        difficulty:`easy`
+
     },
     {
         question:`Al Pacino utters the famous "You're Out of Order" line? in which movie?`,
@@ -239,7 +260,8 @@ let questionsEasy = [
         b:`The Devil's Advocate`,
         c:`Scent of a Woman`,
         d:`City Hall`,
-        answer:`a`
+        answer:`a`,
+        difficulty:`easy`
     },
     {
         question:`Al Pacino starred in 2019 film The Irishman, can you pick the actor who doesn't co-star in the film`,
@@ -247,7 +269,8 @@ let questionsEasy = [
         b:`Christopher Walken`,
         c:`Joe Pesci`,
         d:`Harvey Keitel`,
-        answer:`b`
+        answer:`b`,
+        difficulty:`easy`
     },
     {
         question:`Al Pacino portrays Tony D'Anato a head coach of the Miami Sharks in the 1999 movie Any Given Sunday, what sport do the Miami Sharks play?`,
@@ -255,7 +278,9 @@ let questionsEasy = [
         b:`Basketball`,
         c:`Ice Hockey`,
         d:`Baseball`,
-        answer:`a`
+        answer:`a`,
+        difficulty:`easy`
+
     },
     {
         question:`Al Pacino starred alongside George Clooney, Brad Pitt and Matt Damon, in which 2007 heist movie?`,
@@ -263,7 +288,8 @@ let questionsEasy = [
         b:`Ocean's Thirteen`,
         c:`Inception`,
         d:`The Town`,
-        answer:`b`
+        answer:`b`,
+        difficulty:`easy`
     },
     {
         question:`Al Pacino portrays Michael Corleone in the Godfather Trilogy that was directed by which director?`,
@@ -271,7 +297,8 @@ let questionsEasy = [
         b:`Stanley Kubrick`,
         c:`Francis Ford Coppola`,
         d:`Roman Polanski`,
-        answer:`c`
+        answer:`c`,
+        difficulty:`easy`
     },
     {
         question:`Al Pacino is known for many of his famous movie quotes, can you finish this quote "Say hello to my little ?"?`,
@@ -279,7 +306,8 @@ let questionsEasy = [
         b:`Man`,
         c:`Doggie`,
         d:`Friend`,
-        answer:`d`
+        answer:`d`,
+        difficulty:`easy`
     },
     {
         question:`Al Pacino starred alongisde which actor in the 1999 film The Insider, known for roles in movies such as Gladiator, American Gangster and A Beautiful Mind?`,
@@ -287,11 +315,13 @@ let questionsEasy = [
         b:`Tom Hanks`,
         c:`Ed Harris`,
         d:`Denzel Washington`,
-        answer:`a`
+        answer:`a`,
+        difficulty:`easy`
     },
     
 ]
 
+let filteredQuestions  = questions.filter(question => question.difficulty === difficultyLevel)
 /**
   * Button difficulty selected
   */
@@ -342,7 +372,7 @@ function startQuiz(){
     let username = document.getElementById("username").value;
     document.getElementById("post").innerHTML = "Username:" + username ;
 
-    let startTime = 1;
+    /*let startTime = 1;
     let time = startTime * 60;
     let timer = document.getElementById("timer");
 
@@ -354,7 +384,7 @@ function startQuiz(){
 
     timer.innerHTML = `${minutes}: ${seconds}`;
     time--;
-    }
+    }*/
 
 }
 
@@ -371,9 +401,9 @@ let submitBtn = document.getElementById("submit");
 
 
 
-easyDifficulty.addEventListener('click', displayEasyQuestion)
-mediumDifficulty.addEventListener('click', displayMediumQuestion)
-hardDifficulty.addEventListener('click', displayHardQuestion)
+easyDifficulty.addEventListener('click', questions)
+mediumDifficulty.addEventListener('click', questions)
+hardDifficulty.addEventListener('click', questions)
 
 
 let pickDifficulty = () => {
@@ -386,7 +416,7 @@ let pickDifficulty = () => {
     }
     }
 
-function displayHardQuestion (){
+/*function displayHardQuestion (){
 
     let currentQuestion = questionsHard [currentQuiz];
 
@@ -426,20 +456,20 @@ function displayEasyQuestion(){
 
     deselectAnswer();
 
-}
+}*/
 
 displayQuestion();
 
 function displayQuestion () {
     
-    let currentQuestion = questionsEasy || questionsMedium || questionsHard[currentQuiz];
+    let currentQuestion = questions[currentQuiz]
 
     if (pickDifficulty === "easy") {
-        return displayEasyQuestion;
+        return filteredQuestions;
     } else if (pickDifficulty === "medium"){
-        return displayMediumQuestion;
+        return filteredQuestions;
     } else if (pickDifficulty === "hard"){
-        return displayHardQuestion;
+        return filteredQuestions;
     }
 
     questionE1.innerText = currentQuestion.question
@@ -447,7 +477,13 @@ function displayQuestion () {
     b_answer.innerText = currentQuestion.b
     c_answer.innerText = currentQuestion.c
     d_answer.innerText = currentQuestion.d
-    
+
+    deselectAnswer()
+}
+
+document.getElementById('submit').onclick = function(){
+    questionCounter+=1;
+    document.getElementById('question-counter').innerHTML = `<h3>Question:${questionCounter}</h3>`
 }
 
 function selectedAnswer() {
@@ -472,8 +508,7 @@ function deselectAnswer(){
 function endQuiz(){
         questionHolder.classList.add('hide');
             scoreContainer.classList.remove("hide");
-    
-            scoreContainer.innerHTML = `<h2>${username.value} answered correctly ${score}/${questionsHard.length} questions.</h2>`;
+            scoreContainer.innerHTML = `<h2>${username.value} answered correctly ${score}/${questions.length} questions.</h2>`;
 }
 
 function nextQuestion (){
@@ -481,17 +516,20 @@ function nextQuestion (){
     let answer = selectedAnswer();
 
     if(answer){
-        if (answer === questionsHard[currentQuiz].answer)  {
+        if (answer === questions[currentQuiz].answer)  {
             score++;
+            document.getElementById('score-counter').innerHTML = `<h3>Score:${score} / ${maxQuestion}</h3>`
+        } else {
+            
         }
 
     currentQuiz++;
-        if (currentQuiz < questionsHard.length) {
-        displayHardQuestion();
+        if (currentQuiz < questions.length) {
+        displayQuestion();
     } else endQuiz() 
 }
 
-else if(answer){
+/*else if(answer){
         if (answer === questionsMedium[currentQuiz].answer)  {
             score++;
         }
@@ -512,9 +550,9 @@ else if (answer){
         if (currentQuiz < questionsEasy.length) {
             displayEasyQuestion();
         
-    } else endQuiz() 
+    } else endQuiz() */
 }
-}       
+
 
 /**
  * event listner and loopto go through all the question and answer to
