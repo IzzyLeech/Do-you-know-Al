@@ -403,12 +403,14 @@ function endQuiz() {
   questionHolder.classList.add("hide");
   scoreContainer.classList.remove("hide");
 
-  if (acount.textContent >= 8) {
+  if (acount.textContent >= 10){
+    resultMessage.innerHTML = `${username.value} you have reach god-tier`
+  } else if (acount.textContent >= 8) {
     stupid.play();
     resultMessage.innerHTML = `${username.value}`;
   } else if (acount.textContent >= 5) {
     something.play();
-    resultMessage.innerHTML = `${username.value}`
+    resultMessage.innerHTML = `${username.value} you might have some potenial`
   } else if (acount.textContent >= 3) {
     whatToSay.play();
     resultMessage.innerHTML = `What was that ${username.value}`;
