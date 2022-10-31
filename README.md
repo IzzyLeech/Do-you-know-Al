@@ -58,7 +58,15 @@ the colors that will be using are as following:
 * #080808 (black) This will be used as the background color of all the containers 
 * #ffdb00 (gold) This will be used for the color of the main header of the quiz and the box shadow for the difficulty if selected.   
 ### Structure
+I will be building my website with a mobile-first approach. Using the Chrome developer tools to give me the iPhone 4 (320px), I will use this as the smallest screen size for styling.
 
+| Screen Size | Breakpoint |
+| ----------- | ---------- |
+| x-small     | <576px     |
+| small       | => 576px   |
+| medium      | => 768px   |
+| large       | => 992px   |
+| x-large     | => 1200px  |
 # Wireframe
 
 # Features

@@ -69,7 +69,7 @@ body {
     height: 75px;
     border-radius: 10px;
     border: 2px solid var(--red);
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 1rem 0;
     text-transform: uppercase;
     background-color: var(--white);
@@ -101,7 +101,7 @@ body {
 #question-holder {
     background-color: var(--black);
     width: 85vw;
-    height: 95vh;
+    height: 100vh;
     max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
@@ -135,6 +135,7 @@ body {
     white-space: nowrap;
     padding:8px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 #answer-holder input[type="radio"] {
@@ -145,7 +146,7 @@ body {
     background: var(--red);
 }
 
-#answer-holder input[type="radio"]:checked + label:after {
+#answer-holder input[type="radio"]:checked + label {
     background-color: var(--red);
 }
 
@@ -162,6 +163,7 @@ body {
 #difficulty input[type='radio']:checked+label {
     box-shadow: 0px 0px 20px 10px var(--gold);
     color: var(--black);
+    background-color: var(--gold);
 }
 
 #score-container{
@@ -192,13 +194,35 @@ body {
 @media (min-width:1200px) {
 
     #welcome-head {
-        font-size: 50px;
+        font-size: 5rem;
     }
 
     #info {
-        font-size:25px;
+        font-size:3rem;
         text-align: center;
     }
 
+    .username{
+        font-size: 3rem;
+        text-decoration: underline;
+    }
 
+    #username {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    #difficulty {
+        height: 10rem;
+    }
+
+    #difficulty input,
+    #difficulty label {
+        font-size: 4rem;
+    }
+
+    .btn {
+        height: 14rem;
+        width: 18rem;
+    }
 }
