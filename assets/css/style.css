@@ -12,7 +12,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    background-color: black;
+    background-color: white;
     color: white;
 
     display: flex;
@@ -29,28 +29,54 @@ body {
 }
 
 #welcome{
-    background-color: grey;
-    width: 85%;
-    max-width: 100%;
-    height: 45vh;
-
+    background-color: black;
+    width: 80vw;
+    height: 82vh;
+    max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
     padding: 25px;
     border-radius: 1rem;
-    box-shadow: 0 0 10px gold;
+    box-shadow: 0 0 10px red;
 }
 
-    .btn {
+#welcome-head {
+    font-size: 27px;
+    text-shadow: 2px 2px gold;
+    color: red;
+    background-color: black;
+    border: 1px solid ;
+}
+
+#info {
+    font-size: 14px;
+    text-align:justify
+}
+
+.btn {
     width: 80px;
     height: 75px;
     border-radius: 10px;
     border: 5px solid black;
     margin-top: 20px;
+    padding: 1rem 0;
     text-transform: uppercase;
     background-color: gold;
     font-size: 16px;
     cursor: pointer;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 red;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.btn[disabled]:hover {
+    cursor:not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
 .radio {
@@ -62,28 +88,58 @@ body {
 }
 
 #question-holder {
-    background-color: grey;
-    width: 85%;
-    max-width: 100%;
-    height: 50vh;
-
+    background-color: black;
+    width: 85vw;
+    height: 95vh;
+    max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
     border-radius: 1rem;
-    box-shadow: 0 0 10px gold;
+    box-shadow: 0 0 10px red;
 }
 
-ul {
-    list-style:upper-alpha;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap:30px;
-    margin: 20px 0;
+#question-holder p {
+    font-size: 14px;  
+}
+
+#question {
+    font-size: 15px;
+}
+
+#answer-holder {
+    list-style-type: none;
+    margin: 25px 0 0 0;
+}
+
+#answer-holder li {
+    margin: 0 5px 0 0;
+    height: 40px;
+}
+
+#answer-holder label,
+#answer-holder input {
+    border: 1px solid gold;
+    color: white;
+    white-space: nowrap;
+    padding:8px;
+    cursor: pointer;
+}
+
+#answer-holder input[type="radio"] {
+    display: none;
+}
+
+#answer-holder label:hover {
+    background: red;
+}
+
+#answer-holder input[type="radio"]:checked+label {
+    background-color: blue;
 }
 
 #difficulty {
-    background-color:gold;
+    background-color:red;
     justify-content: space-evenly;
 }
 
@@ -92,16 +148,45 @@ ul {
 }
 
 #difficulty input[type='radio']:checked+label {
-    box-shadow: 0px 0px 20px 4px black;
+    box-shadow: 0px 0px 20px 10px gold;
+    color: black;
 }
 
-#timer {
-    background-color: black;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    height: 50px;
-    width: 100px;
-    margin: 0;
+#score-container{
+    background-color: grey;
+    width: 85vw;
+    height: 50vh;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px gold;
+}
+
+#result-message {
+    font-size: 2.5rem;
+}
+
+#score-message {
+    margin-top: 5px;
+    font-size: 3rem;
+}
+
+#restart-btn {
+    margin-top: 1rem;
+}
+
+@media (min-width:1200px) {
+
+    #welcome-head {
+        font-size: 50px;
+    }
+
+    #info {
+        font-size:25px;
+        text-align: center;
+    }
+
+
 }

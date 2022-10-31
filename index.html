@@ -10,8 +10,10 @@
 </head>
 <body>
     <div id="welcome">
-    <h3>Do you Know Al?</h3>
-    <p>Info</p>
+    <p id="welcome-head">Do you Know Al?</p>
+    <p id="info">Welcome to a quiz that solely focuses on the acclaimed and prestige actor Al Pacino.
+    Can you rise to the occasion by testing your knowledge or will you hear the displeasure of Al if you demonstrate doltish input? 
+    All that is needed is for you to Enter your name below and pick a difficulty.</p>
     <div>
     <label for="username">Enter your Username</label>
     <input type="text" name="username" id="username" placeholder="Enter Username">
@@ -19,44 +21,50 @@
 
     <div id="difficulty" class="center">
         <div>
-            <input type="radio" name="difficulty" id="easy-diff">
+            <input type="radio" name="level" id="easy-diff" value="easy">
             <label for="easy-diff">Easy</label>
         </div>
         <div>
-            <input type="radio" name="difficulty" id="medium-diff">
+            <input type="radio" name="level" id="medium-diff" value="medium">
             <label for="medium-diff">Medium</label>
         </div>
         <div>
-            <input type="radio" name="difficulty" id="hard-diff">
+            <input type="radio" name="level" id="hard-diff" value="hard">
             <label for="hard-diff">Hard</label>
         </div>
     </div>
 
-    <button id="start-btn" type="submit" class="btn"  disabled>Start</button>
-    <audio src="assets/audio/al-give-me-all you-got.mp3" id="give-me"></audio>
-    <audio src="assets/audio/al-dont-waste-mytime.mp3" id="waste-time"></audio>
+    <button id="start-btn" type="submit" class="btn" disabled>Start</button>
+
     </div>
 <div id="question-holder" class="hide">
-    <div id="question-counter"></div>
-    <div id="score-counter"></div>
-    <p id="post"></p>
-    <p id="question">Question placement</p>
-    <ul>
-        <li><label for="a" id="a-answer">possible answer</label><input type="radio" name="answer" id="a" class="answer"></li>
-        <li><label for="b" id="b-answer">possible answer</label><input type="radio" name="answer" id="b" class="answer"></li>
-        <li><label for="c" id="c-answer">possible answer</label><input type="radio" name="answer" id="c" class="answer"></li>
-        <li><label for="d" id="d-answer">possible answer</label><input type="radio" name="answer" id="d" class="answer"></li>
-    </ul>
-    <div id="timer">1:00</div>
-    <button id="submit" class="btn">Submit</button>
+<div>Questions: <span id="question-counter"></span> / <span id="questions-total"></span></div>
+<div>Correct answers: <span id="score-counter"></span></div>
+<p id="post"></p>
+<div class="quiz">
+<h4 id="question">Question placement</h4>
+<ul id="answer-holder">
+    <li><label><input type="radio" name="answer" value="a"><span>possible answer</span></label></li>
+    <li><label><input type="radio" name="answer" value="b"><span>possible answer</span></label></li>
+    <li><label><input type="radio" name="answer" value="c"><span>possible answer</span></label></li>
+    <li><label><input type="radio" name="answer" value="d"><span>possible answer</span></label></li>        
+</ul>
 </div>
-<div id="score-hold"></div>
-
+<button id="submit" class="btn" disabled>Submit </button>
+  </div>
 
 <div id="score-container" class="hide">
-    <div ></div>
+    <div id="result-message"></div>
+    <div id="score-message"></div>
+    <button class="btn" id="restart-btn" onclick="location.reload()">Try Again</button>
 </div>
-    
+    <audio src="assets/audio/glengary ysfc.mp3" id="stupid"></audio>
+    <audio src="assets/audio/you-idiot.mp3" id="idiot"></audio>
+    <audio src="assets/audio/what-to-say.mp3" id="what-to-say"></audio>
+    <audio src="assets/audio/something.mp3" id="something"></audio>
+    <audio src="assets/audio/al-give-me-all you-got.mp3" id="give-me"></audio>
+    <audio src="assets/audio/al-dont-waste-mytime.mp3" id="waste-time"></audio>
+
     <script src="assets/js/script.js"></script>
     
 </body>
