@@ -48,9 +48,15 @@
 ## Design Choices
 
 ### Fonts
-
+I have used [Google Fonts](https://fonts.google.com/ "Google Fonts") to change my fonts from the standard fonts that are supplied in VS Code. The fonts that have used are [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=playfair) which will be the main font of the quiz, reasons for using it are for its simple quality and easy on the eyes readability. The other font that I will use is [Poppins](https://fonts.google.com/specimen/Poppins?query=poppins), reasons for using it are for the placement on the main header so it can stand out from the main body font.
 ### Colors
+In deciding what color I want to use for my website, I wanted to base it on the theatrical released poster for the movie Scarface that starrted Al Pacino. The main color code for the poster is the two tone of black and white while the font is dark red with the outline of the lettering is gold. When deciding how to implement these color in my quiz my main reference will be the poster. The website I used to comlpy these colors was [color-hex](https://www.color-hex.com/). I used [WebAIM](https://webaim.org/) to check if the contrast would pass the test if the colors where compatible. The result for the main two color that will be used are [here](wireframe/contrast-checker-1.png). Other result for secondary color are [here](wireframe/contrast-checker.png) and [here](wireframe/contrast-checker-2.png).
 
+the colors that will be using are as following:
+* #FF1919 (red) This will be used for borders, checked answers and box shadow. 
+* #e9edf6 (white) This will be used for the majority of the font of the quiz, the buttons and the outside of the quiz.
+* #080808 (black) This will be used as the background color of all the containers 
+* #ffdb00 (gold) This will be used for the color of the main header of the quiz and the box shadow for the difficulty if selected.   
 ### Structure
 
 # Wireframe

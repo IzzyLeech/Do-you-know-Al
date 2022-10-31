@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap');
 
 :root {
-    --red: #8a0303;
+    --red: #FF1919;
     --white: #e9edf6;
     --black: #080808;
     --gold: #ffdb00;
@@ -23,7 +23,7 @@ body {
     font-size: 1.6rem;
     background-color: var(--white);
     color: var(--white);
-    font-family: 'Playfair', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
 
     display: flex;
     flex-direction: column;
@@ -51,7 +51,7 @@ body {
 }
 
 #welcome-head {
-    font-size: 27px;
+    font-size: 24px;
     font-family: 'Poppins';
     text-shadow: 2px 2px var(--red);
     color: var(--gold);
@@ -130,7 +130,7 @@ body {
 
 #answer-holder label,
 #answer-holder input {
-    border: 1px solid var(--gold);
+    border: 1px solid var(--red);
     color: var(--white);
     white-space: nowrap;
     padding:8px;
@@ -150,7 +150,8 @@ body {
 }
 
 #difficulty {
-    background-color:var(--red);
+    background-color:var(--white);
+    color: var(--black);
     justify-content: space-evenly;
 }
 
@@ -160,7 +161,7 @@ body {
 
 #difficulty input[type='radio']:checked+label {
     box-shadow: 0px 0px 20px 10px var(--gold);
-    color: black;
+    color: var(--black);
 }
 
 #score-container{
