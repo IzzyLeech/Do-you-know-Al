@@ -7,6 +7,8 @@
 
  Do you know Al is an online quiz that will give the user the opportunity to the test their knowledge on the aaclaimed actor, through different difficluty while the actor gives his input back on each question and final verdict on the total score.
 
+![responsive](wireframe/am%20i%20responsive.png)
+
 # UX
 
 ## User Goals
@@ -191,6 +193,8 @@ Once the quiz has been completed the user will be shown his score on the result 
 
 ## Features to be Implemented
 
+Features that I would like to add to the quiz are adding a countdown timer for each question and having certain audio play when a question is correct or incorrect.
+
 # Technologies Used
 
 ## Languages
@@ -234,6 +238,17 @@ Once the quiz has been completed the user will be shown his score on the result 
 
 ![JavaScript]
 
-When initially designing my wireframe for my quiz I wanted to keep my quiz to a simple standard and not complicated with images and unnecessary clutter. With the finished product, I feel that I have kept to that standard. The option to not include images was a difficult one as I felt it would give little interactive media to the quiz. I resolved this by including the audio of Al Pacino to add that touch of means to the quiz. One change that I feel also helped the quiz be not cluttered was the removal of the header in the quiz section that at the time of its placement made it feel that too much information was being thrown at the user. 
+When initially designing my wireframe for my quiz I wanted to keep my quiz to a simple standard and not complicated with images and unnecessary clutter. With the finished product, I feel that I have kept to that standard. The option to not include images was a difficult one as I felt it would give little interactive media to the quiz. I resolved this by including the audio of Al Pacino to add that touch of means to the quiz. One change that I feel also helped the quiz be not cluttered was the removal of the header in the quiz section that at the time of its placement made it feel that too much information was being thrown at the user.
+
+Originally I had the answers in a grid of two rows with two columns to give space for the header but once I had the emission of the header I reverted it to a single column using flex to fill up the space. This help in having no empty space for visual purpose.
+
+Another design change was 
+
 
 ## JavaScript
+
+This being the first time I have built a JavaScript project I ran into a couple of problems that resulted in a lot of changes. Originally I built a quiz that had three separate arrays of questions based on difficulty. I wanted to then do an if loop for when the difficulty was checked it would display the question. The problem I ran into was that when I clicked the difficulty it would only display the first question of the easy, medium array and then show the rest of the hard questions. 
+
+This resulted in me changing how I would find my question by filtering the question into a single array of questions and then looking for the key of difficulty. I also change how I would display my question by cloning the template of the quiz by using cloneNode, but when I went to try and score the quiz I was getting repeat values for an answer. So I had to figure out another way of getting and displaying my question. 
+
+This is where I used the Durstenfeld shuffle so it could shuffle the values that I needed to output with a change of my potential answers being put in an array inside the array. so it could look for the value of the answer.

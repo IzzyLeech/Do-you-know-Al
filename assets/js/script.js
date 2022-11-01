@@ -1,4 +1,5 @@
 const startButton = document.getElementById("start-btn");
+const submitBtn = document.getElementById("submit");
 const welcome = document.getElementById("welcome");
 const questionHolder = document.getElementById("question-holder");
 const scoreContainer = document.getElementById("score-container");
@@ -6,13 +7,21 @@ const resultMessage = document.getElementById("result-message");
 const scoreMessage = document.getElementById("score-message");
 const difficultySelector = document.querySelectorAll('[name="level"]');
 const answerSelector = document.querySelectorAll('[name="answer"]');
-
-const submitBtn = document.getElementById("submit");
-const maxQuestion = 10;
-let diffChecked = false;
-let answerChecked = false;
 let username = document.querySelector("#username");
 
+/*
+*Game Variable
+*/
+const maxQuestion = 10;
+/*
+*Validate Variables
+*/
+let diffChecked = false;
+let answerChecked = false;
+
+/*
+*Audio
+*/
 const waste = document.getElementById("waste-time");
 const giveMe = document.getElementById("give-me");
 const stupid = document.getElementById("stupid");
@@ -21,6 +30,9 @@ const whatToSay = document.getElementById("what-to-say");
 const something = document.getElementById("something");
 const winning = document.getElementById("winning")
 
+/*
+*Questions and HTML elements selector 
+*/
 let questions = [
     {
       question: `Al Pacino starred in the 1975 film Dog Day Afternoon that is the true story of a bank robbery gone bad. Where did the attempted robbery take place?`,
@@ -301,6 +313,10 @@ let questions = [
   qtotal = document.querySelector("#questions-total"),
   acount = document.querySelector("#score-counter");
 
+
+/* Set the parameters for validating input
+* and for when ansers is checked
+*/
 username.addEventListener("input", function () {
   validateInput();
 });
@@ -319,6 +335,9 @@ answerSelector.forEach(function (item) {
   });
 });
 
+/*function to disable the start button until 
+* username and difficulty have been selected
+*/
 function validateInput() {
   if (username.value.trim().length && diffChecked) {
     startButton.disabled = false;
@@ -327,6 +346,9 @@ function validateInput() {
   }
 }
 
+/*function to disable the submit button until answer
+* is checked
+*/
 function selectedAnswer() {
   if (answerChecked) {
     submitBtn.disabled = false;
@@ -355,6 +377,10 @@ function nextQ() {
   } else endQuiz();
 }
 
+/*Event Listener to filter question based on difficluty for when input has been click on
+* it will display question on that difficulty.
+* Also set the value for answer counter and question counter
+*/
 document.querySelectorAll("input[name=level]").forEach(
   (lvl) =>
     (lvl.onclick = (_) => {
@@ -391,6 +417,13 @@ document.querySelector("#submit").onclick = (_) => {
   
 };
 
+/*
+*Function to switch from Welcome screen to question screen
+*Logs username to question holder
+*/
+
+startButton.addEventListener("click", startQuiz);
+
 function startQuiz() {
   welcome.classList.add("hide");
   questionHolder.classList.remove("hide");
@@ -398,6 +431,11 @@ function startQuiz() {
   let username = document.getElementById("username").value;
   document.getElementById("post").innerHTML = "Username:" + username;
 }
+
+/*
+*Function to switch question screen to result screen
+* Show the user there score and give message and audio
+*/
 
 function endQuiz() {
   questionHolder.classList.add("hide");
@@ -422,4 +460,4 @@ function endQuiz() {
   scoreMessage.innerHTML = `${acount.textContent}/${maxQuestion}`;
 }
 
-startButton.addEventListener("click", startQuiz);
+
