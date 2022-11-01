@@ -62,7 +62,7 @@ I will be building my website with a mobile-first approach. Using the Chrome dev
 
 | Screen Size | Breakpoint |
 | ----------- | ---------- |
-| x-small     | <476px     |
+| x-small     | <475px     |
 | small       | => 576px   |
 | medium      | => 768px   |
 | large       | => 992px   |
@@ -70,6 +70,53 @@ I will be building my website with a mobile-first approach. Using the Chrome dev
 # Wireframe
 
 # Features
+
+## Existing Features
+
+### Welcome Screen
+The quiz when first opened will display the welcome screen. The content portrayed will give the user the needed information on what the quiz is about and also detail what is needed to start the quiz. The content will be displayed center on the screen for all screen sizes.
+
+![Mobile Screen](wireframe/welcome-screen%20mobile.png)
+Visual for welcome screen on mobile screen.
+
+![Tablet Screen](wireframe/welcome-screen%20tablet.png)
+Visual for welocme screen on tablet screen.
+
+![Desktop Screen](wireframe/welcome-screen%20desktop.png)
+Visual for welcome screen on desktop screen.
+
+To start the quiz two requirements must be met, a username must be place in the text input box and a difficulty must be selected for the start button to become active.
+
+![not active text box](wireframe/text-box%20not%20active.png)
+Visual for text box when not selected.
+![active text box](wireframe/text-box%20active.png)
+Visual for text box when selected will light up the border to indicated to the user that they can input text, even when selected the button will still be disable due no text being inputed and also accounting for whitespace not being allowed.
+
+![difficulty not selected](wireframe/difficulty%20not%20selected.png)
+Visual for difficultys when not selected.
+![difficulty selected](wireframe/difficulty%20selected.png)
+Visaul for difficulty when selected will demostrate the background change color to indicate to the user that it is selected.
+
+![Start button disabled](wireframe/start-button-disabled.png)
+Visaul for start button when disabled.
+![Start button active](wireframe/start-button-active.png)
+Visual for start button when button is active after the two requirements are met.
+
+### Quiz Section
+The quiz section holds the following content of the current question of the difficulty, its potential answers, the username, the current question out of 10 question, the score out of 10 question and the submit button. These element stay constant throughout the entirely of the 10 question that are being asked. I oringally wanted to place the header for the quiz in this section but felt it made the screen space very cluttered so decided to option it out. 
+
+![Quiz Section](wireframe/quiz-section.png)
+Visual for quiz section that stays consistent through screen sizes.
+
+![Counter Box](wireframe/counterbox.png)
+Visaul for the counter box that will update every time a question is anwer.
+
+![counter Box updated](wireframe/updated%20counter%20box.png)
+Visual for updated counter box showing the user has got questions wrong out of the number of question done.
+
+![Username](wireframe/username-quizsection.png)
+Visual for the username that is enter in the welcome screen that is place throught the quiz section until it ends.
+
 
 # Technologies Used
 

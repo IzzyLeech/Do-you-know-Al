@@ -63,13 +63,14 @@ body {
     box-shadow: 0 0 10px var(--red);
 }
 
-#welcome-head {
+.welcome-head {
     font-size: 24px;
     font-family: 'Poppins';
     text-shadow: 2px 2px var(--red);
     color: var(--gold);
     background-color: var(--black);
     border: 1px solid ;
+    margin: 1rem 0;
 }
 
 #info {
@@ -128,12 +129,15 @@ body {
 .counter-box {
     font-size: 14px;
     font-weight:900;
+    border: 1px solid var(--red);
+    padding-right: 2px;
 }
 
 #post {
     margin: 1rem 0;
-    text-decoration: underline;
+    text-decoration: underline var(--red);
     font-size: 1.8rem;
+
 }
 
 #question {
@@ -176,7 +180,12 @@ body {
     background-color:var(--white);
     color: var(--black);
     justify-content: space-evenly;
-    margin: .5rem 0;
+    margin: .5rem ;
+}
+
+#difficulty input,
+#difficulty label {
+    padding: .5rem;
 }
 
 #difficulty input {
@@ -184,7 +193,6 @@ body {
 }
 
 #difficulty input[type='radio']:checked+label {
-    box-shadow: 0px 0px 20px 10px var(--gold);
     color: var(--black);
     background-color: var(--gold);
 }
@@ -271,7 +279,13 @@ body {
         height: 7rem;
         width: 12rem;
     }
-}   
+}
+
+@media (min-width:768px){
+    .welcome-head{
+        font-size: 6rem;
+    }
+} 
 
 @media (min-width:1200px) {
 

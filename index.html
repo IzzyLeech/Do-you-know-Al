@@ -9,14 +9,14 @@
     <title>Do you know Al?</title>
 </head>
 <body>
-    <div id="welcome">
-    <p id="welcome-head">Do you Know Al?</p>
+    <div id="welcome" class="center-column">
+    <p class="welcome-head">Do you Know Al?</p>
     <p id="info">Welcome to a quiz that solely focuses on the acclaimed and prestige actor Al Pacino.
     Can you rise to the occasion by testing your knowledge or will you hear the displeasure of Al if you demonstrate doltish input? 
     All that is needed is for you to Enter your name below and pick a difficulty.</p>
     <div class="username">
     <label for="username">Enter your Username:</label>
-    <input type="text" name="username" id="username" placeholder="Enter Username">
+    <input type="text" name="username" id="username" placeholder="Enter Username" onfocus="">
     </div>
 
     <div id="difficulty" class="center-row">
@@ -56,6 +56,7 @@
   </div>
 
 <div id="score-container" class="hide center-column">
+    <p class="welcome-head">Do you Know Al?</p>
     <div id="result-message"></div>
     <div id="score-message"></div>
     <button class="btn" id="restart-btn" onclick="location.reload()">Try Again</button>
