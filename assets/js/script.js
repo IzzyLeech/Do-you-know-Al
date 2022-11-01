@@ -3,16 +3,15 @@ let welcome = document.getElementById("welcome");
 let questionHolder = document.getElementById("question-holder");
 let scoreContainer = document.getElementById("score-container");
 let resultMessage = document.getElementById("result-message");
-let scoreMessage = document.getElementById("score-message")
+let scoreMessage = document.getElementById("score-message");
 let difficultySelector = document.querySelectorAll('[name="level"]');
-let answerSelector = document.querySelectorAll('[name="answer"]')
+let answerSelector = document.querySelectorAll('[name="answer"]');
 let difficulty = document.getElementById("difficulty");
-
 
 let submitBtn = document.getElementById("submit");
 let maxQuestion = 10;
 let diffChecked = false;
-let answerChecked = false
+let answerChecked = false;
 let username = document.querySelector("#username");
 
 let waste = document.getElementById("waste-time");
@@ -20,7 +19,7 @@ let giveMe = document.getElementById("give-me");
 let stupid = document.getElementById("stupid");
 let idiot = document.getElementById("idiot");
 let whatToSay = document.getElementById("what-to-say");
-let something = document.getElementById("something")
+let something = document.getElementById("something");
 
 let questions = [
     {
@@ -296,11 +295,11 @@ let questions = [
       difficulty: `easy`,
     },
   ],
-    question = document.querySelector("#question"),
-    answers = document.querySelectorAll("#answer-holder label span"),
-    qcount = document.querySelector("#question-counter"),
-    qtotal = document.querySelector("#questions-total"),
-    acount = document.querySelector("#score-counter");
+  question = document.querySelector("#question"),
+  answers = document.querySelectorAll("#answer-holder label span"),
+  qcount = document.querySelector("#question-counter"),
+  qtotal = document.querySelector("#questions-total"),
+  acount = document.querySelector("#score-counter");
 
 username.addEventListener("input", function () {
   validateInput();
@@ -314,10 +313,10 @@ difficultySelector.forEach(function (item) {
 });
 
 answerSelector.forEach(function (item) {
-  item.addEventListener("click", function(){
+  item.addEventListener("click", function () {
     answerChecked = true;
     selectedAnswer();
-  })
+  });
 });
 
 function validateInput() {
@@ -328,11 +327,11 @@ function validateInput() {
   }
 }
 
-function selectedAnswer(){
+function selectedAnswer() {
   if (answerChecked) {
     submitBtn.disabled = false;
   } else {
-    submitBtn.disabled = true
+    submitBtn.disabled = true;
   }
 }
 
@@ -353,7 +352,6 @@ function nextQ() {
       a.textContent = questions.Q.choices[i];
       a.previousElementSibling.checked = false;
     });
-    
   } else endQuiz();
 }
 
@@ -368,27 +366,30 @@ document.querySelectorAll("input[name=level]").forEach(
       nextQ();
     })
 );
+
 document.querySelector("#submit").onclick = (_) => {
   // submit button ==> submit answer
   if (questions.Q) {
     // only after game is initialised ...
     const ans = document.querySelector("#answer-holder input:checked");
     ++qcount.textContent;
-    if (ans?.value == questions.Q.answer) 
-    ++acount.textContent;
+    if (ans?.value == questions.Q.answer) ++acount.textContent;
     nextQ();
-    
-    answerChecked = false
-    selectedAnswer();
-  } 
-    
 
-  if (answers.value) {
-    const ans = document.querySelector("#answer-holder input:checked");
-    if (ans?.value === question.answer)
-    giveMe.play();
-  } else {
-    idiot.play();
+    console.log(answers, "answers");
+    if (question.Q) {
+      const ans = document.querySelector("#answer-holder input:checked");
+      console.log("ans", ans);
+      console.log(question, "question");
+      if (ans.value == question.Q.answer) console.log("give me");
+      giveMe.play();
+    } else {
+      console.log("idiot");
+      idiot.play();
+    }
+
+    answerChecked = false;
+    selectedAnswer();
   }
 };
 
@@ -404,14 +405,14 @@ function endQuiz() {
   questionHolder.classList.add("hide");
   scoreContainer.classList.remove("hide");
 
-  if (acount.textContent >= 10){
-    resultMessage.innerHTML = `${username.value} you have reach god-tier`
+  if (acount.textContent >= 10) {
+    resultMessage.innerHTML = `${username.value} you have reach god-tier`;
   } else if (acount.textContent >= 8) {
     stupid.play();
-    resultMessage.innerHTML = `${username.value}`;
+    resultMessage.innerHTML = `${username.value} getting better but still not there yet`;
   } else if (acount.textContent >= 5) {
     something.play();
-    resultMessage.innerHTML = `${username.value} you might have some potenial`
+    resultMessage.innerHTML = `${username.value} you might have some potenial`;
   } else if (acount.textContent >= 3) {
     whatToSay.play();
     resultMessage.innerHTML = `What was that ${username.value}`;

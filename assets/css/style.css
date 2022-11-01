@@ -168,13 +168,15 @@ body {
     display: none;
 }
 
+#answer-holder input[type="radio"]:checked+label {
+    background-color: var(--red);
+}
+
 #answer-holder label:hover {
     background: var(--red);
 }
 
-#answer-holder input[type="radio"]:checked + label {
-    background-color: var(--red);
-}
+
 
 #difficulty {
     background-color:var(--white);
