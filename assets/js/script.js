@@ -1,25 +1,25 @@
-let startButton = document.getElementById("start-btn");
-let welcome = document.getElementById("welcome");
-let questionHolder = document.getElementById("question-holder");
-let scoreContainer = document.getElementById("score-container");
-let resultMessage = document.getElementById("result-message");
-let scoreMessage = document.getElementById("score-message");
-let difficultySelector = document.querySelectorAll('[name="level"]');
-let answerSelector = document.querySelectorAll('[name="answer"]');
-let difficulty = document.getElementById("difficulty");
+const startButton = document.getElementById("start-btn");
+const welcome = document.getElementById("welcome");
+const questionHolder = document.getElementById("question-holder");
+const scoreContainer = document.getElementById("score-container");
+const resultMessage = document.getElementById("result-message");
+const scoreMessage = document.getElementById("score-message");
+const difficultySelector = document.querySelectorAll('[name="level"]');
+const answerSelector = document.querySelectorAll('[name="answer"]');
 
-let submitBtn = document.getElementById("submit");
-let maxQuestion = 10;
+const submitBtn = document.getElementById("submit");
+const maxQuestion = 10;
 let diffChecked = false;
 let answerChecked = false;
 let username = document.querySelector("#username");
 
-let waste = document.getElementById("waste-time");
-let giveMe = document.getElementById("give-me");
-let stupid = document.getElementById("stupid");
-let idiot = document.getElementById("idiot");
-let whatToSay = document.getElementById("what-to-say");
-let something = document.getElementById("something");
+const waste = document.getElementById("waste-time");
+const giveMe = document.getElementById("give-me");
+const stupid = document.getElementById("stupid");
+const idiot = document.getElementById("idiot");
+const whatToSay = document.getElementById("what-to-say");
+const something = document.getElementById("something");
+const winning = document.getElementById("winning")
 
 let questions = [
     {
@@ -373,24 +373,22 @@ document.querySelector("#submit").onclick = (_) => {
     // only after game is initialised ...
     const ans = document.querySelector("#answer-holder input:checked");
     ++qcount.textContent;
-    if (ans?.value == questions.Q.answer) ++acount.textContent;
+    if (ans.value == questions.Q.answer) ++acount.textContent;
     nextQ();
 
-    console.log(answers, "answers");
-    if (question.Q) {
+  }
+
+    if (answers.value) {
       const ans = document.querySelector("#answer-holder input:checked");
-      console.log("ans", ans);
-      console.log(question, "question");
       if (ans.value == question.Q.answer) console.log("give me");
       giveMe.play();
     } else {
-      console.log("idiot");
       idiot.play();
     }
 
     answerChecked = false;
     selectedAnswer();
-  }
+  
 };
 
 function startQuiz() {
@@ -407,8 +405,9 @@ function endQuiz() {
 
   if (acount.textContent >= 10) {
     resultMessage.innerHTML = `${username.value} you have reach god-tier`;
+    winning.play();
   } else if (acount.textContent >= 8) {
-    stupid.play();
+    giveMe.play();
     resultMessage.innerHTML = `${username.value} getting better but still not there yet`;
   } else if (acount.textContent >= 5) {
     something.play();

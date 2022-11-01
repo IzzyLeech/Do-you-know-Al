@@ -127,7 +127,7 @@ body {
 }
 
 .counter-box {
-    font-size: 14px;
+    font-size: 13px;
     font-weight:900;
     border: 1px solid var(--red);
     padding-right: 2px;
@@ -202,7 +202,7 @@ body {
 #score-container{
     background-color: var(--black);
     width: 85vw;
-    height: 50vh;
+    height: 55vh;
     max-width: 80rem;
     margin-left: auto;
     margin-right: auto;

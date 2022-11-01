@@ -1,5 +1,7 @@
 # Do you know Al
 
+![header](wireframe/header%20for%20quiz.png)
+
 # Goal for this Project
  "Do you know Al"
 
@@ -150,14 +152,54 @@ Visual of how the user views the answer choices with the submit button being dis
 
 Visual of how the user views the anwser when an anwser choices is selected with resulthing in the submit button being enable. Allowing the user to go to the next question.
 
-
 ### Result Screen
+Once the quiz has been completed the user will be shown his score on the result screen. The result screen will give the information of the username that was inputted at the start of the quiz, the number of questions they correctly answered out of 10, a message that will be determined on their score, and also audio also determined on the score. There are 5 different messages and audio clip that will depend on the result they scored in the quiz. Result message and audio play are as followed. 
+
+* 10 out of 10
+
+![result10/10](wireframe/result%2010-10.png)
+
+[audio](assets/audio/winning.mp3)
+
+* Greater than or equal to 8 out of 10
+
+![result8/10](wireframe/result%208-10.png)
+
+[audio](assets/audio/al-give-me-all%20you-got.mp3)
+
+* Greater than or equal to 5 out of 10
+
+![result5/10](wireframe/result%205-10.png)
+
+[audio](assets/audio/something.mp3)
+
+* Greater than or equal to 3 out of 10
+
+![result3/10](wireframe/result%203-10.png)
+
+[audio](assets/audio/what-to-say.mp3)
+
+* equal to 0 out of 10
+
+![result0/10](wireframe/result%200-10.png)
+
+[audio](assets/audio/al-dont-waste-mytime.mp3)
+
+![Try Again](wireframe/tryagain.button.png)
+
+On each result page regardless of the score will have try agin button that will reload the quiz back to the welcome page.
+
+## Features to be Implemented
 
 # Technologies Used
 
 ## Languages
+* [HTML](https://en.wikipedia.org/wiki/HTML "HTML")
+* [CSS](https://en.wikipedia.org/wiki/CSS "CSS")
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
 ## Libaries & Framework
+* [Google Fonts](https://fonts.google.com/ "Google Fonts")
 
 # Tools
 
