@@ -69,6 +69,10 @@ I will be building my website with a mobile-first approach. Using the Chrome dev
 | x-large     | => 1200px  |
 # Wireframe
 
+To make a blueprint for my quiz, I used the [Balsamiq](https://balsamiq.com/wireframes/). I only created one wireframe for mobile, reason being that the tablet and desktop version of the quiz will be very simler in layout and structure.
+
+[Mobile Wireframe](wireframe/do-you-know-al-wireframe.bmpr)
+
 # Features
 
 ## Existing Features
@@ -77,12 +81,15 @@ I will be building my website with a mobile-first approach. Using the Chrome dev
 The quiz when first opened will display the welcome screen. The content portrayed will give the user the needed information on what the quiz is about and also detail what is needed to start the quiz. The content will be displayed center on the screen for all screen sizes.
 
 ![Mobile Screen](wireframe/welcome-screen%20mobile.png)
+
 Visual for welcome screen on mobile screen.
 
 ![Tablet Screen](wireframe/welcome-screen%20tablet.png)
+
 Visual for welocme screen on tablet screen.
 
 ![Desktop Screen](wireframe/welcome-screen%20desktop.png)
+
 Visual for welcome screen on desktop screen.
 
 To start the quiz two requirements must be met, a username must be place in the text input box and a difficulty must be selected for the start button to become active.
@@ -106,6 +113,7 @@ Visaul for difficulty when selected will demostrate the background change color 
 ![Start button disabled](wireframe/start-button-disabled.png)
 
 Visaul for start button when disabled.
+
 ![Start button active](wireframe/start-button-active.png)
 
 Visual for start button when button is active after the two requirements are met.
