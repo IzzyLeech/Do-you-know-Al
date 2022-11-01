@@ -176,8 +176,6 @@ body {
     background: var(--red);
 }
 
-
-
 #difficulty {
     background-color:var(--white);
     color: var(--black);
@@ -187,7 +185,7 @@ body {
 
 #difficulty input,
 #difficulty label {
-    padding: .5rem;
+    padding: .3rem;
 }
 
 #difficulty input {

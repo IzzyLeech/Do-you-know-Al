@@ -24,7 +24,6 @@ let answerChecked = false;
 */
 const waste = document.getElementById("waste-time");
 const giveMe = document.getElementById("give-me");
-const stupid = document.getElementById("stupid");
 const idiot = document.getElementById("idiot");
 const whatToSay = document.getElementById("what-to-say");
 const something = document.getElementById("something");
@@ -399,19 +398,11 @@ document.querySelector("#submit").onclick = (_) => {
     // only after game is initialised ...
     const ans = document.querySelector("#answer-holder input:checked");
     ++qcount.textContent;
-    if (ans.value == questions.Q.answer) ++acount.textContent;
+    if (ans?.value == questions.Q.answer)
+    ++acount.textContent;
     nextQ();
-
   }
-
-    if (answers.value) {
-      const ans = document.querySelector("#answer-holder input:checked");
-      if (ans.value == question.Q.answer) console.log("give me");
-      giveMe.play();
-    } else {
-      idiot.play();
-    }
-
+    
     answerChecked = false;
     selectedAnswer();
   
@@ -459,5 +450,3 @@ function endQuiz() {
   }
   scoreMessage.innerHTML = `${acount.textContent}/${maxQuestion}`;
 }
-
-

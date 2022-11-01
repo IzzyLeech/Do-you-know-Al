@@ -3,31 +3,60 @@
 ![header](wireframe/header%20for%20quiz.png)
 
 # Goal for this Project
- "Do you know Al"
 
- Do you know Al is an online quiz that will give the user the opportunity to the test their knowledge on the aaclaimed actor, through different difficluty while the actor gives his input back on each question and final verdict on the total score.
+ Do you know Al is an online quiz that will allow the user to test their knowledge of the acclaimed actor, through different difficulties while the actor gives his input back on each question and final verdict on the total score?
 
 ![responsive](wireframe/am%20i%20responsive.png)
+
+# Table of Contents
+
+* [UX](#ux "UX")
+    * [User Goals](#user-goals "User Goals")
+    * [User Stories](#user-stories "User Stories")
+    * [Site Owner Goals](#site-owner-goals)
+    * [User Requirements and Expectations](#user-requirements-and-expectations)
+         * [Requirements](#requirements)
+         * [Expectations](#expectations)
+     * [Design Choices](#design-choices)
+        * [Fonts](#fonts)
+        * [Colors](#colors)
+        * [Structure](#structure)
+    * [Wireframes](#wireframes)
+    * [Features](#features)
+        * [Existing Features](#existing-features)
+        * [Welcome Screen](#welcome-Screen)
+        * [Quiz Section](quiz-section)
+        * [Result Screen](result-section)
+        * [Features To Be added](#features-to-be-added)
+    * [Technologies used](#technologies-used)
+        * [Languages](#languages)
+        * [Tools and Libraries](#tools-and-libraries)
+    * [Testing](#testing)
+        * [Layout and Content](layout-and-content)
+        * [JavaScript](javascript)
+        * [Unfixed Bugs](#unfixed-bugs)
+    * [Deployment](#deployment)
+    
 
 # UX
 
 ## User Goals
-* Straight to the point on being able to start the quiz on minimal option to start the quiz.
-* Having an easily understandable structure that flows linear.
+* Straight to the point on being able to start the quiz on the minimal option to start the quiz.
+* Having an easily understandable structure that flows linearly.
 * Being able to see how I performed on the quiz
 * Having the option to test on different difficulty 
 * To have an enjoyable time participating in the quiz
 
 ## User Stories
-* As a user, I want to see my progression of my score during and after the quiz is finished.
-* As a user, I want to have a custom username that is visually throughout the quiz.
-* As a user, I want to be able to test myself on different difficluty of the quiz.
+* As a user, I want to see the progression of my score during and after the quiz is finished.
+* As a user, I want to have a custom username that is visual throughout the quiz.
+* As a user, I want to be able to test myself on different difficulty of the quiz.
 * As a user, I want to be able to restart the quiz when I finish the quiz, so I can test myself on another difficulty.
 * As a user, I want the question to be factually correct.
 
 ## Site Owners Goals
-* To create a single page website that doesnt need to reload.
-* To have audio cue's of Al Pacino giving feedback on the perforamnce of the user during and after the quiz.
+* To create a single-page website that doesn't need to reload.
+* To have audio cues of Al Pacino giving feedback on the performance of the user during and after the quiz.
 * To have the user give their username and selected difficulty before the quiz begins.
 * To make the quiz fun and enjoyable.
 * To tally the score and the current question.
@@ -36,14 +65,14 @@
 ### Requirements
 * Reponsize design, that will be based on mobile-first.
 * To have the quiz on a single page layoust.
-* To have high contrast color palette that will be beneficial for peolpe with low vision. 
+* To have a high contrasting color palette that will be beneficial for people with low vision.
 * Give feedback on performance on the quiz
-* To have the audio cues to reflect the performance of the user input.
+* To have the audio cues reflect the performance of the user input.
 
 ### Expections
 * I expect that the correct question load when difficulty is selected.
 * I expect the quiz to score the question correctly.
-* I expect the right audio to play when determine if the question is right or wrong.
+* I expect the right audio to play when determining if the question is right or wrong.
 * I expect the user to be given their correct score at the end of the quiz and audio given in the range of their score.
 * I expect screen size not to affect the quality of the quiz
 * I expect the username to be displayed during the quiz and after the quiz ends.
@@ -52,15 +81,17 @@
 ## Design Choices
 
 ### Fonts
-I have used [Google Fonts](https://fonts.google.com/ "Google Fonts") to change my fonts from the standard fonts that are supplied in VS Code. The fonts that have used are [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=playfair) which will be the main font of the quiz, reasons for using it are for its simple quality and easy on the eyes readability. The other font that I will use is [Poppins](https://fonts.google.com/specimen/Poppins?query=poppins), reasons for using it are for the placement on the main header so it can stand out from the main body font.
+I have used [Google Fonts](https://fonts.google.com/ "Google Fonts") to change my fonts from the standard fonts that are supplied in VS Code. The fonts that have used are [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=playfair) which will be the main font of the quiz, reasons for using it are its simple quality and easy of the eyes readability. The other font that I will use is [Poppins](https://fonts.google.com/specimen/Poppins?query=poppins), reasons for using it are for the placement on the main header so it can stand out from the main body font.
+
 ### Colors
-In deciding what color I want to use for my website, I wanted to base it on the theatrical released poster for the movie Scarface that starrted Al Pacino. The main color code for the poster is the two tone of black and white while the font is dark red with the outline of the lettering is gold. When deciding how to implement these color in my quiz my main reference will be the poster. The website I used to comlpy these colors was [color-hex](https://www.color-hex.com/). I used [WebAIM](https://webaim.org/) to check if the contrast would pass the test if the colors where compatible. The result for the main two color that will be used are [here](wireframe/contrast-checker-1.png). Other result for secondary color are [here](wireframe/contrast-checker.png) and [here](wireframe/contrast-checker-2.png).
+In deciding what color I want to use for my website, I wanted to base it on the theatrically-released poster for the movie Scarface which starred Al Pacino. The main color code for the poster is the two-tone black and white while the font is dark red with the outline of the lettering gold. When deciding how to implement these colors in my quiz my main reference will be the poster. The website I used to comply these colors was [color-hex](https://www.color-hex.com/). I used [WebAIM](https://webaim.org/) to check if the contrast would pass the test if the colors where compatible. The result for the main two color that will be used are [here](wireframe/contrast-checker-1.png). Other result for secondary color are [here](wireframe/contrast-checker.png) and [here](wireframe/contrast-checker-2.png).
 
 the colors that will be using are as following:
 * #FF1919 (red) This will be used for borders, checked answers and box shadow. 
 * #e9edf6 (white) This will be used for the majority of the font of the quiz, the buttons and the outside of the quiz.
 * #080808 (black) This will be used as the background color of all the containers 
-* #ffdb00 (gold) This will be used for the color of the main header of the quiz and the box shadow for the difficulty if selected.   
+* #ffdb00 (gold) This will be used for the color of the main header of the quiz and the box shadow for the difficulty if selected.
+
 ### Structure
 I will be building my website with a mobile-first approach. Using the Chrome developer tools to give me the iPhone 4 (320px), I will use this as the smallest screen size for styling.
 
@@ -123,7 +154,7 @@ To start the quiz two requirements must be met, a username must be place in the 
 * Visual for start button when button is active after the two requirements are met.
 
 ### Quiz Section
-The quiz section holds the following content of the current question of the difficulty, its potential answers, the username, the current question out of 10 question, the score out of 10 question and the submit button. These element stay constant throughout the entirely of the 10 question that are being asked. I oringally wanted to place the header for the quiz in this section but felt it made the screen space very cluttered so decided to option it out.
+The quiz section holds the following content the current question of the difficulty, its potential answers, the username, the current question out of 10 questions, the score out of 10 questions, and the submit button. These elements stay constant throughout the entirety of the 10 questions that are being asked. I originally wanted to place the header for the quiz in this section but felt it made the screen space very cluttered so decided to option it out.
 
 ![Quiz Section](wireframe/quiz-section.png)
 
@@ -155,7 +186,7 @@ The quiz section holds the following content of the current question of the diff
 * Visual of how the user views the anwser when an anwser choices is selected with resulthing in the submit button being enable. Allowing the user to go to the next question.
 
 ### Result Screen
-Once the quiz has been completed the user will be shown his score on the result screen. The result screen will give the information of the username that was inputted at the start of the quiz, the number of questions they correctly answered out of 10, a message that will be determined on their score, and also audio also determined on the score. There are 5 different messages and audio clip that will depend on the result they scored in the quiz. Result message and audio play are as followed. 
+Once the quiz has been completed the user will be shown his score on the result screen. The result screen will give the information of the username that was inputted at the start of the quiz, the number of questions they correctly answered out of 10, a message that will be determined on their score, and also audio also determined on the score. There are 5 different messages and audio clips that will depend on the result they scored in the quiz. The result message and audio play are as followed. 
 
 * 10 out of 10
 
@@ -242,8 +273,7 @@ When initially designing my wireframe for my quiz I wanted to keep my quiz to a 
 
 Originally I had the answers in a grid of two rows with two columns to give space for the header but once I had the emission of the header I reverted it to a single column using flex to fill up the space. This help in having no empty space for visual purpose.
 
-Another design change was 
-
+Overall I am happy with the display and structure of the quiz. I feel it is very straightforward in a linear sense. I don't think it diverts from its purpose of function.   
 
 ## JavaScript
 
@@ -252,3 +282,11 @@ This being the first time I have built a JavaScript project I ran into a couple 
 This resulted in me changing how I would find my question by filtering the question into a single array of questions and then looking for the key of difficulty. I also change how I would display my question by cloning the template of the quiz by using cloneNode, but when I went to try and score the quiz I was getting repeat values for an answer. So I had to figure out another way of getting and displaying my question. 
 
 This is where I used the Durstenfeld shuffle so it could shuffle the values that I needed to output with a change of my potential answers being put in an array inside the array. so it could look for the value of the answer.
+
+## Unfixed Bugs
+
+A bug that I found when testing was late in my development is when an answer is clicked in the question section it should have its background change to red. If the website is in its normal state of the full browser it won't work. If the website is in google developer it will work or use the dimension of a given mobile or tablet device. I have tried changing the order In when the CSS rule is called but the problem still persisted.
+
+# Deployment
+
+Project was deployed on GitHub using the page feature. Link to https://izzyleech.github.io/Do-you-know-Al/
