@@ -84,73 +84,73 @@ The quiz when first opened will display the welcome screen. The content portraye
 
 ![Mobile Screen](wireframe/welcome-screen%20mobile.png)
 
-Visual for welcome screen on mobile screen.
+* Visual for welcome screen on mobile screen.
 
 ![Tablet Screen](wireframe/welcome-screen%20tablet.png)
 
-Visual for welocme screen on tablet screen.
+* Visual for welocme screen on tablet screen.
 
 ![Desktop Screen](wireframe/welcome-screen%20desktop.png)
 
-Visual for welcome screen on desktop screen.
+* Visual for welcome screen on desktop screen.
 
 To start the quiz two requirements must be met, a username must be place in the text input box and a difficulty must be selected for the start button to become active.
 
 ![not active text box](wireframe/text-box%20not%20active.png)
 
-Visual for text box when not selected.
+* Visual for text box when not selected.
 
 ![active text box](wireframe/text-box%20active.png)
 
-Visual for text box when selected will light up the border to indicated to the user that they can input text, even when selected the button will still be disable due no text being inputed and also accounting for whitespace not being allowed.
+* Visual for text box when selected will light up the border to indicated to the user that they can input text, even when selected the button will still be disable due no text being inputed and also accounting for whitespace not being allowed.
 
 ![difficulty not selected](wireframe/difficulty%20not%20selected.png)
 
-Visual for difficultys when not selected.
+* Visual for difficultys when not selected.
 
 ![difficulty selected](wireframe/difficulty%20selected.png)
 
-Visaul for difficulty when selected will demostrate the background change color to indicate to the user that it is selected.
+* Visaul for difficulty when selected will demostrate the background change color to indicate to the user that it is selected.
 
 ![Start button disabled](wireframe/start-button-disabled.png)
 
-Visaul for start button when disabled.
+* Visaul for start button when disabled.
 
 ![Start button active](wireframe/start-button-active.png)
 
-Visual for start button when button is active after the two requirements are met.
+* Visual for start button when button is active after the two requirements are met.
 
 ### Quiz Section
 The quiz section holds the following content of the current question of the difficulty, its potential answers, the username, the current question out of 10 question, the score out of 10 question and the submit button. These element stay constant throughout the entirely of the 10 question that are being asked. I oringally wanted to place the header for the quiz in this section but felt it made the screen space very cluttered so decided to option it out.
 
 ![Quiz Section](wireframe/quiz-section.png)
 
-Visual for quiz section that stays consistent throughout screen sizes.
+* Visual for quiz section that stays consistent throughout screen sizes.
 
 ![Counter Box](wireframe/counterbox.png)
 
-Visaul for the counter box that will update every time a question is anwer. 
+* Visaul for the counter box that will update every time a question is anwer. 
 
 ![counter Box updated](wireframe/updated%20counter%20box.png)
 
-Visual for updated counter box showing the user has got questions wrong out of the number of question done. Helpfully for the user to see their progress in the quiz and how many question they have to answer left.
+* isual for updated counter box showing the user has got questions wrong out of the number of question done. Helpfully for the user to see their progress in the quiz and how many question they have to answer left.
 
 ![Username](wireframe/username-quizsection.png)
 
-Visual for the username that is enter in the welcome screen that is place throught the quiz section until it ends.
+* Visual for the username that is enter in the welcome screen that is place throught the quiz section until it ends.
 
 ![question and answer layout](wireframe/layout%20of%20question%20and%20answer.png)
 
-Visual of the layout of the question and choice of answers 
+* Visual of the layout of the question and choice of answers 
 
 ![anwser not selected button disabled](wireframe/submit%20button%20disabled%20no%20answer%20selected.png)
 
-Visual of how the user views the answer choices with the submit button being disabled. THis will stop the user being able to continue in the quiz until the a potential anser is selected.
+* Visual of how the user views the answer choices with the submit button being disabled. THis will stop the user being able to continue in the quiz until the a potential anser is selected.
 
 
 ![answer selected button enabled](wireframe/submit-button-enabled-when-answer-selected.png)
 
-Visual of how the user views the anwser when an anwser choices is selected with resulthing in the submit button being enable. Allowing the user to go to the next question.
+* Visual of how the user views the anwser when an anwser choices is selected with resulthing in the submit button being enable. Allowing the user to go to the next question.
 
 ### Result Screen
 Once the quiz has been completed the user will be shown his score on the result screen. The result screen will give the information of the username that was inputted at the start of the quiz, the number of questions they correctly answered out of 10, a message that will be determined on their score, and also audio also determined on the score. There are 5 different messages and audio clip that will depend on the result they scored in the quiz. Result message and audio play are as followed. 
@@ -187,7 +187,7 @@ Once the quiz has been completed the user will be shown his score on the result 
 
 ![Try Again](wireframe/tryagain.button.png)
 
-On each result page regardless of the score will have try agin button that will reload the quiz back to the welcome page.
+*On each result page regardless of the score will have try agin button that will reload the quiz back to the welcome page.
 
 ## Features to be Implemented
 
@@ -201,6 +201,39 @@ On each result page regardless of the score will have try agin button that will 
 ## Libaries & Framework
 * [Google Fonts](https://fonts.google.com/ "Google Fonts")
 
-# Tools
+## Tools
+* For construction and deployment [Gitpod](https://www.gitpod.io/ "Gitpod")
+* For wireframes [Balsamic](https://balsamiq.com/wireframes/ "Balsamic")
+* For HTML validation [W3C HTML Validation Service](https://validator.w3.org/ "W3C HTML")
+* For CSS validation [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS")
+* For JS syntax validator [Esprima](https://esprima.org/demo/validate.html "Esprima")
+* For complying color hex [color-hex](https://www.color-hex.com/)
+* For color contrast test [WebAIM](https://webaim.org/)
+* For audio [YouTube](https://www.youtube.com/)
+* For audio converter [YT2MP3](https://yt2mp3.info/?l=en)
+* For audio splitter [MP3cut](https://mp3cut.net/)
+* For spell checking [Grammarly](https://chrome.google.com/webstore/detail/grammarly-for-chrome/kbfnbcaeplbcioakkpcpgfkobkghlhen/related?hl=en "Grammarly")
 
-# Testing 
+# Testing
+
+## Layout and Content
+
+* My result from lighthouse in devtool.
+
+![lighthouse](wireframe/lighthouse%20result.png)
+
+* My result from The W3C Markup Validation Service.
+
+![HTML](wireframe/html%20vaildator.png)
+
+* My result from The W3C CSS Validation Service.
+
+![CSS](wireframe/css%20validator.png)
+
+* My result from Esprima Syntax Validator.
+
+![JavaScript]
+
+When initially designing my wireframe for my quiz I wanted to keep my quiz to a simple standard and not complicated with images and unnecessary clutter. With the finished product, I feel that I have kept to that standard. The option to not include images was a difficult one as I felt it would give little interactive media to the quiz. I resolved this by including the audio of Al Pacino to add that touch of means to the quiz. One change that I feel also helped the quiz be not cluttered was the removal of the header in the quiz section that at the time of its placement made it feel that too much information was being thrown at the user. 
+
+## JavaScript
