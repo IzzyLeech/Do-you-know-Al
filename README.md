@@ -267,7 +267,7 @@ Features that I would like to add to the quiz are adding a countdown timer for e
 
 * My result from Esprima Syntax Validator.
 
-![JavaScript]
+![JavaScript](wireframe/Esprima%20syntax%20validator.png)
 
 When initially designing my wireframe for my quiz I wanted to keep my quiz to a simple standard and not complicated with images and unnecessary clutter. With the finished product, I feel that I have kept to that standard. The option to not include images was a difficult one as I felt it would give little interactive media to the quiz. I resolved this by including the audio of Al Pacino to add that touch of means to the quiz. One change that I feel also helped the quiz be not cluttered was the removal of the header in the quiz section that at the time of its placement made it feel that too much information was being thrown at the user.
 

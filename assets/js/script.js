@@ -398,11 +398,10 @@ document.querySelector("#submit").onclick = (_) => {
     // only after game is initialised ...
     const ans = document.querySelector("#answer-holder input:checked");
     ++qcount.textContent;
-    if (ans?.value == questions.Q.answer)
+    if (ans.value == questions.Q.answer)
     ++acount.textContent;
     nextQ();
   }
-    
     answerChecked = false;
     selectedAnswer();
   
