@@ -361,7 +361,8 @@ document.querySelectorAll("input[name=level]").forEach(
     (lvl.onclick = (_) => {
       // filter questions according to level and shuffle them into questions.sel
       questions.sel = shfl(questions.filter((q) => q.difficulty == lvl.value));
-      qcount.textContent = acount.textContent = "0";
+      acount.textContent = "0";
+      qcount.textContent = "1";
       qtotal.textContent = questions.sel.length;
       nextQ();
     })

@@ -221,6 +221,12 @@ body {
         font-size: 4rem;
     }
 
+    #question-holder {
+        height: 90vh;
+    }
+
+    
+
     .btn {
         height: 14rem;
         width: 18rem;
