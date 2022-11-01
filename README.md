@@ -62,7 +62,7 @@ I will be building my website with a mobile-first approach. Using the Chrome dev
 
 | Screen Size | Breakpoint |
 | ----------- | ---------- |
-| x-small     | <576px     |
+| x-small     | <476px     |
 | small       | => 576px   |
 | medium      | => 768px   |
 | large       | => 992px   |

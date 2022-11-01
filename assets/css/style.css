@@ -32,16 +32,29 @@ body {
     min-height: 100vh;
 }
 
-.center{
+.center-row{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.center-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 #welcome{
     background-color: var(--black);
     width: 80vw;
-    height: 88vh;
+    height: 90vh;
     max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
@@ -61,15 +74,17 @@ body {
 
 #info {
     font-size: 14px;
-    text-align:justify
+    text-align:justify;
+    border: 1px solid var(--gold);
+    padding: 5px 15px;
 }
 
 .btn {
-    width: 80px;
-    height: 75px;
+    width: 10rem;
+    height: 4rem;
     border-radius: 10px;
     border: 2px solid var(--red);
-    margin-top: 10px;
+    margin-top: .5rem;
     padding: 1rem 0;
     text-transform: uppercase;
     background-color: var(--white);
@@ -110,8 +125,15 @@ body {
     box-shadow: 0 0 10px var(--red);
 }
 
-#question-holder p {
-    font-size: 14px;  
+.counter-box {
+    font-size: 14px;
+    font-weight:900;
+}
+
+#post {
+    margin: 1rem 0;
+    text-decoration: underline;
+    font-size: 1.8rem;
 }
 
 #question {
@@ -124,7 +146,7 @@ body {
 }
 
 #answer-holder li {
-    margin: 0 5px 0 0;
+    margin: 1rem 0;
     height: 40px;
 }
 
@@ -154,6 +176,7 @@ body {
     background-color:var(--white);
     color: var(--black);
     justify-content: space-evenly;
+    margin: .5rem 0;
 }
 
 #difficulty input {
@@ -191,6 +214,65 @@ body {
     margin-top: 1rem;
 }
 
+@media (min-width:475px) {
+
+    #welcome-head {
+        font-size: 3rem;
+    }
+
+    #info{
+        font-size: 22px;
+    }
+
+    .username {
+        display: flex;
+        flex-direction: column;
+        font-size: 22px;
+    }
+
+    .username input {
+        font-size: 22px;
+    }
+
+    #difficulty {
+        height: 7rem;
+        margin: 2rem 0;
+    }
+
+    #start-btn {
+        width: 15rem;
+        height: 8rem;
+    } 
+
+    .counter-box {
+        font-size: 2rem;
+    }
+
+    #post {
+        margin: 2.5rem;
+        font-size: 2.5rem;
+    }
+
+    #question {
+        font-size: 2.8rem;
+    }
+
+    #answer-holder li {
+        margin: 50px 0 0 0;
+    }
+
+    #answer-holder label,
+    #answer-holder input{
+    font-size: 2.5rem;
+    }
+
+    #submit{
+        margin-top: 4rem;
+        height: 7rem;
+        width: 12rem;
+    }
+}   
+
 @media (min-width:1200px) {
 
     #welcome-head {
@@ -224,8 +306,6 @@ body {
     #question-holder {
         height: 90vh;
     }
-
-    
 
     .btn {
         height: 14rem;

@@ -344,6 +344,7 @@ function shfl(a) {
   }
   return a;
 }
+
 function nextQ() {
   // get next question of filtered and shuffled selection
   if ((questions.Q = questions.sel.shift())) {
@@ -385,7 +386,6 @@ document.querySelector("#submit").onclick = (_) => {
   if (answers.value) {
     const ans = document.querySelector("#answer-holder input:checked");
     if (ans?.value === question.answer)
-    
     giveMe.play();
   } else {
     idiot.play();
