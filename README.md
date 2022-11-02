@@ -273,6 +273,10 @@ When initially designing my wireframe for my quiz I wanted to keep my quiz to a 
 
 Originally I had the answers in a grid of two rows with two columns to give space for the header but once I had the emission of the header I reverted it to a single column using flex to fill up the space. This help in having no empty space for visual purpose.
 
+From testing my quiz I found each question is answer correctly and when the difficulty is selected it shows the right question. Additional the correct audio is play and message is shown for the range of scoring.
+
+I wanted to add a audio for correct and incorrect answer but wasn't able to get just the audio to play for correct answer as it would play both audio files for when the answer was given correct. 
+
 Overall I am happy with the display and structure of the quiz. I feel it is very straightforward in a linear sense. I don't think it diverts from its purpose of function.   
 
 ## JavaScript
@@ -281,7 +285,7 @@ This being the first time I have built a JavaScript project I ran into a couple 
 
 This resulted in me changing how I would find my question by filtering the question into a single array of questions and then looking for the key of difficulty. I also change how I would display my question by cloning the template of the quiz by using cloneNode, but when I went to try and score the quiz I was getting repeat values for an answer. So I had to figure out another way of getting and displaying my question. 
 
-This is where I used the Durstenfeld shuffle so it could shuffle the values that I needed to output with a change of my potential answers being put in an array inside the array. so it could look for the value of the answer.
+This is where I used the Durstenfeld shuffle so it could shuffle the values that I needed to output until there were no values left to be given. I had to change my potential answers by put them in an array inside the array. so it could look for the value of the answer through a loop. It would then ramdomly select a question from the shuffle and print it content throught the value of Q. I then gave the value of a to my answer choices and equal it to the questions.Q.choices[i]. This was the base for my next question function. I would then create a event listener when clicked for the questions to select my question based on difficluty to a level I had set with the name element. This would then give me my question based on difficulty. For scoring the question I created  an event listener on the submit button that that would check the checkbox that was checked value was equal to the value of the  questions.Q.answer. 
 
 ## Unfixed Bugs
 
