@@ -28,6 +28,8 @@ const idiot = document.getElementById("idiot");
 const whatToSay = document.getElementById("what-to-say");
 const something = document.getElementById("something");
 const winning = document.getElementById("winning")
+const trade = document.getElementById("trade")
+const bingo = document.getElementById("bingo")
 
 /*
 *Questions and HTML elements selector 
@@ -398,13 +400,20 @@ document.querySelector("#submit").onclick = (_) => {
     // only after game is initialised ...
     const ans = document.querySelector("#answer-holder input:checked");
     ++qcount.textContent;
-    if (ans.value == questions.Q.answer)
-    ++acount.textContent;
+    if (ans.value == questions.Q.answer) {
+      ++acount.textContent;
+      if (questions.sel.length > 0) {
+        bingo.play(); // Play correct sound
+      }
+    } else {
+      if (questions.sel.length > 0) {
+        trade.play(); // Play incorrect sound
+      }
+    }
     nextQ();
   }
-    answerChecked = false;
-    selectedAnswer();
-  
+  answerChecked = false;
+  selectedAnswer();
 };
 
 /*
