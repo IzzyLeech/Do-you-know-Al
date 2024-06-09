@@ -31,6 +31,51 @@ const winning = document.getElementById("winning")
 const trade = document.getElementById("trade")
 const bingo = document.getElementById("bingo")
 
+/* Timer variables*/
+let timerInterval;
+const timePerQuestion = 10;
+let timeLeft = timePerQuestion;
+
+/* Update the timer display */
+function updateTimerDisplay() {
+  document.getElementById('time-left').textContent = timeLeft;
+}
+
+/* Start the timer */
+function startTimer() {
+  timeLeft = timePerQuestion;
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay();
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      timeOut();
+    }
+  }, 1000);
+}
+
+/* Handle timer expiry */
+function timeOut() {
+  alert("Time's up!");
+  disableAnswers();
+  trade.play();
+  setTimeout(nextQ, 1000);
+}
+
+/*Clear the timer */
+function clearTimer() {
+  clearInterval(timerInterval);
+}
+
+/* Disable answer options and submit button */
+function disableAnswers() {
+  answerSelector.forEach(function (item) {
+    item.disabled = true;
+  });
+  submitBtn.disabled = true;
+}
+
 /*
 *Questions and HTML elements selector 
 */
@@ -374,8 +419,15 @@ function nextQ() {
     answers.forEach((a, i) => {
       a.textContent = questions.Q.choices[i];
       a.previousElementSibling.checked = false;
+      a.previousElementSibling.disabled = false; // Re-enable answers
     });
-  } else endQuiz();
+    submitBtn.disabled = true; // Disable submit button initially
+    answerChecked = false;
+    startTimer(); // Start the timer for the new question
+  } else {
+    clearTimer(); // Clear the timer if no more questions
+    endQuiz();
+  }
 }
 
 /*Event Listener to filter question based on difficluty for when input has been click on
@@ -403,14 +455,16 @@ document.querySelector("#submit").onclick = (_) => {
     if (ans.value == questions.Q.answer) {
       ++acount.textContent;
       if (questions.sel.length > 0) {
-        bingo.play(); // Play correct sound
+        bingo.play(); // Play correct sound only if there are more questions
       }
     } else {
       if (questions.sel.length > 0) {
-        trade.play(); // Play incorrect sound
+        trade.play(); // Play incorrect sound only if there are more questions
       }
     }
-    nextQ();
+    clearTimer(); // Clear the timer when an answer is submitted
+    disableAnswers(); // Disable answer options
+    setTimeout(nextQ, 1000); // Move to the next question after a short delay
   }
   answerChecked = false;
   selectedAnswer();
