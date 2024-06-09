@@ -33,26 +33,41 @@ const bingo = document.getElementById("bingo")
 
 /* Timer variables*/
 let timerInterval;
-const timePerQuestion = 10;
-let timeLeft = timePerQuestion;
+const timePerDifficulty = {
+  easy: 0, // No time for easy questions
+  medium: 20, // 20 seconds for medium questions
+  hard: 10, // 10 seconds for hard questions
+};
+let timeLeft = 0;
 
 /* Update the timer display */
 function updateTimerDisplay() {
   document.getElementById('time-left').textContent = timeLeft;
 }
 
+// Show or hide the timer container
+function toggleTimerDisplay(show) {
+  const timerContainer = document.getElementById('timer');
+  timerContainer.style.display = show ? 'block' : 'none';
+}
+
 /* Start the timer */
-function startTimer() {
-  timeLeft = timePerQuestion;
+function startTimer(difficulty) {
+  timeLeft = timePerDifficulty[difficulty];
   updateTimerDisplay();
-  timerInterval = setInterval(() => {
-    timeLeft--;
-    updateTimerDisplay();
-    if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      timeOut();
-    }
-  }, 1000);
+  if (timeLeft > 0) {  // Only start the timer if the time is greater than 0
+    toggleTimerDisplay(true); // Show the timer
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      updateTimerDisplay();
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        timeOut();
+      }
+    }, 1000);
+  } else {
+    toggleTimerDisplay(false); // Hide the timer if no time is set
+  }
 }
 
 /* Handle timer expiry */
@@ -66,6 +81,7 @@ function timeOut() {
 /*Clear the timer */
 function clearTimer() {
   clearInterval(timerInterval);
+  toggleTimerDisplay(false); // Hide the timer when cleared
 }
 
 /* Disable answer options and submit button */
@@ -423,7 +439,7 @@ function nextQ() {
     });
     submitBtn.disabled = true; // Disable submit button initially
     answerChecked = false;
-    startTimer(); // Start the timer for the new question
+    startTimer(questions.Q.difficulty); // Start the timer for the new question
   } else {
     clearTimer(); // Clear the timer if no more questions
     endQuiz();
