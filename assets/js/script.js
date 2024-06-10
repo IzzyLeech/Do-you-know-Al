@@ -246,8 +246,8 @@ let questions = [
       choices: [
         `Samuel Beckett`,
         `Friedrich Schiller`,
-        `Jean-Paul Sartre`,
         `William Shakespeare`,
+        `Jean-Paul Sartre`,
       ],
       answer: `c`,
       difficulty: `medium`,
@@ -387,6 +387,7 @@ difficultySelector.forEach(function (item) {
   item.addEventListener("click", function () {
     diffChecked = true;
     validateInput();
+    clearTimer(); // Clear the timer when a new difficulty is selected
   });
 });
 
@@ -458,7 +459,7 @@ document.querySelectorAll("input[name=level]").forEach(
       acount.textContent = "0";
       qcount.textContent = "1";
       qtotal.textContent = questions.sel.length;
-      nextQ();
+      clearTimer(); // Clear the timer when a new difficulty is selected
     })
 );
 
@@ -499,6 +500,7 @@ function startQuiz() {
 
   let username = document.getElementById("username").value;
   document.getElementById("post").innerHTML = "Username:" + username;
+  nextQ(); // Start the quiz and load the first question
 }
 
 /*
