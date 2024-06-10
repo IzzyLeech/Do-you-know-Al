@@ -7,6 +7,7 @@ const resultMessage = document.getElementById("result-message");
 const scoreMessage = document.getElementById("score-message");
 const difficultySelector = document.querySelectorAll('[name="level"]');
 const answerSelector = document.querySelectorAll('[name="answer"]');
+const correctAnswerElement = document.getElementById("correct-answer");
 let username = document.querySelector("#username");
 
 /*
@@ -51,11 +52,11 @@ function toggleTimerDisplay(show) {
   timerContainer.style.display = show ? 'block' : 'none';
 }
 
-/* Start the timer */
+// Start the timer
 function startTimer(difficulty) {
   timeLeft = timePerDifficulty[difficulty];
-  updateTimerDisplay();
-  if (timeLeft > 0) {  // Only start the timer if the time is greater than 0
+  if (timeLeft > 0) {
+    updateTimerDisplay();
     toggleTimerDisplay(true); // Show the timer
     timerInterval = setInterval(() => {
       timeLeft--;
@@ -74,7 +75,10 @@ function startTimer(difficulty) {
 function timeOut() {
   alert("Time's up!");
   disableAnswers();
+  showCorrectAnswer(); // Show the correct answer
   trade.play();
+  toggleTimerDisplay(false); // Hide the timer
+  ++qcount.textContent; // Increment the question counter
   setTimeout(nextQ, 1000);
 }
 
@@ -90,6 +94,18 @@ function disableAnswers() {
     item.disabled = true;
   });
   submitBtn.disabled = true;
+}
+
+function showCorrectAnswer() {
+  const correctAnswerIndex = questions.Q.answer.charCodeAt(0) - 97; // Convert letter to index
+  const correctAnswer = questions.Q.choices[correctAnswerIndex];
+  correctAnswerElement.textContent = `Correct answer: ${correctAnswer}`;
+  correctAnswerElement.style.display = "block"; // Show the correct answer element
+}
+
+// Reset the timer display to its original state
+function resetTimerDisplay() {
+  document.getElementById('timer').innerHTML = `Time left: <span id="time-left"></span>`;
 }
 
 /*
@@ -432,6 +448,7 @@ function shfl(a) {
 function nextQ() {
   // get next question of filtered and shuffled selection
   if ((questions.Q = questions.sel.shift())) {
+    resetTimerDisplay(); // Reset the timer display to its original state
     question.textContent = questions.Q.question;
     answers.forEach((a, i) => {
       a.textContent = questions.Q.choices[i];
@@ -441,6 +458,7 @@ function nextQ() {
     submitBtn.disabled = true; // Disable submit button initially
     answerChecked = false;
     startTimer(questions.Q.difficulty); // Start the timer for the new question
+    correctAnswerElement.style.display = "none"; // Hide the correct answer element
   } else {
     clearTimer(); // Clear the timer if no more questions
     endQuiz();
@@ -469,19 +487,16 @@ document.querySelector("#submit").onclick = (_) => {
     // only after game is initialised ...
     const ans = document.querySelector("#answer-holder input:checked");
     ++qcount.textContent;
-    if (ans.value == questions.Q.answer) {
+    if (ans && ans.value == questions.Q.answer) {
       ++acount.textContent;
-      if (questions.sel.length > 0) {
-        bingo.play(); // Play correct sound only if there are more questions
-      }
+      bingo.play(); // Play correct sound
     } else {
-      if (questions.sel.length > 0) {
-        trade.play(); // Play incorrect sound only if there are more questions
-      }
+      trade.play(); // Play incorrect sound
     }
+    showCorrectAnswer(); // Show the correct answer
     clearTimer(); // Clear the timer when an answer is submitted
     disableAnswers(); // Disable answer options
-    setTimeout(nextQ, 1000); // Move to the next question after a short delay
+    setTimeout(nextQ, 2000); // Move to the next question after a short delay
   }
   answerChecked = false;
   selectedAnswer();
