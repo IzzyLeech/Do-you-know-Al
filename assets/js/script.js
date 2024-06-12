@@ -529,18 +529,19 @@ function startQuiz() {
   nextQ(); // Start the quiz and load the first question
 }
 
-function sendQuizResult(username, score) {
+function sendQuizResult(username, score, difficulty) {
   // Set the values of the form fields
   document.getElementById("formUsername").value = username;
   document.getElementById("formScore").value = score;
+  document.getElementById("formDifficulty").value = difficulty;
   // Submit the form
   document.getElementById("quizForm").submit();
 }
-/*
-*Function to switch question screen to result screen
-* Show the user there score and give message and audio
-*/
 
+/*
+ *Function to switch question screen to result screen
+ * Show the user their score and give message and audio
+ */
 function endQuiz() {
   questionHolder.classList.add("hide");
   scoreContainer.classList.remove("hide");
@@ -548,18 +549,28 @@ function endQuiz() {
   const username = document.getElementById("username").value;
   const score = document.getElementById("score-counter").textContent;
 
+  // Capture the selected difficulty level
+  let difficulty;
+  if (document.getElementById("easy-diff").checked) {
+    difficulty = "easy";
+  } else if (document.getElementById("medium-diff").checked) {
+    difficulty = "medium";
+  } else if (document.getElementById("hard-diff").checked) {
+    difficulty = "hard";
+  }
+
   // Send the quiz result
-  sendQuizResult(username, score);
+  sendQuizResult(username, score, difficulty);
 
   if (acount.textContent >= 10) {
-    resultMessage.innerHTML = `${username} you have reach god-tier`;
+    resultMessage.innerHTML = `${username} you have reached god-tier`;
     winning.play();
   } else if (acount.textContent >= 8) {
     giveMe.play();
     resultMessage.innerHTML = `${username} getting better but still not there yet`;
   } else if (acount.textContent >= 5) {
     something.play();
-    resultMessage.innerHTML = `${username} you might have some potenial`;
+    resultMessage.innerHTML = `${username} you might have some potential`;
   } else if (acount.textContent >= 3) {
     whatToSay.play();
     resultMessage.innerHTML = `What was that ${username}`;
