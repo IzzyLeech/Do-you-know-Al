@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Quiz, Al Pacino, Movies, Film, Actor ">
+    <meta name="keywords" content="Quiz, Al Pacino, Movies, Film, Actor">
     <meta name="description" content="A quiz about the Actor Al Pacino">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="assets/images/flav-clapperboard.png">
@@ -12,59 +12,61 @@
 </head>
 <body>
     <div id="welcome" class="center-column">
-    <p class="welcome-head">Do you Know Al?</p>
-    <p id="info">Welcome to a quiz that solely focuses on the acclaimed and prestige actor Al Pacino.
-    Can you rise to the occasion by testing your knowledge or will you hear the displeasure of Al if you demonstrate doltish input? 
-    All that is needed is for you to Enter your name below and pick a difficulty.</p>
-    <div class="username">
-    <label for="username">Enter your Username:</label>
-    <input type="text" name="username" id="username" placeholder="Enter Username">
+        <p class="welcome-head">Do you Know Al?</p>
+        <p id="info">Welcome to a quiz that solely focuses on the acclaimed and prestigious actor Al Pacino. Can you rise to the occasion by testing your knowledge, or will you hear the displeasure of Al if you demonstrate doltish input? All that is needed is for you to enter your name below and pick a difficulty.</p>
+        <div class="username">
+            <label for="username">Enter your Username:</label>
+            <input type="text" name="username" id="username" placeholder="Enter Username">
+        </div>
+        <div id="difficulty" class="center-row">
+            <div>
+                <input type="radio" name="level" id="easy-diff" value="easy">
+                <label for="easy-diff">Easy</label>
+            </div>
+            <div>
+                <input type="radio" name="level" id="medium-diff" value="medium">
+                <label for="medium-diff">Medium</label>
+            </div>
+            <div>
+                <input type="radio" name="level" id="hard-diff" value="hard">
+                <label for="hard-diff">Hard</label>
+            </div>
+        </div>
+        <button id="start-btn" type="submit" class="btn" disabled>Start</button>
     </div>
 
-    <div id="difficulty" class="center-row">
-        <div>
-            <input type="radio" name="level" id="easy-diff" value="easy">
-            <label for="easy-diff">Easy</label>
+    <div id="question-holder" class="hide">
+        <div class="flex-row">
+            <div class="counter-box">Questions: <span id="question-counter"></span> / <span id="questions-total"></span></div>
+            <div class="counter-box" id="timer">Time left:<span id="time-left"></span></div>
+            <div class="counter-box" id="correct-answer" style="display: none;"></div>
+            <div class="counter-box">Correct answers: <span id="score-counter"></span></div>
         </div>
-        <div>
-            <input type="radio" name="level" id="medium-diff" value="medium">
-            <label for="medium-diff">Medium</label>
+        <p id="post"></p>
+        <div class="quiz">
+            <h4 id="question">Question placement</h4>
+            <ul id="answer-holder">
+                <li><label><input type="radio" name="answer" value="a"><span>possible answer</span></label></li>
+                <li><label><input type="radio" name="answer" value="b"><span>possible answer</span></label></li>
+                <li><label><input type="radio" name="answer" value="c"><span>possible answer</span></label></li>
+                <li><label><input type="radio" name="answer" value="d"><span>possible answer</span></label></li>        
+            </ul>
         </div>
-        <div>
-            <input type="radio" name="level" id="hard-diff" value="hard">
-            <label for="hard-diff">Hard</label>
-        </div>
+        <button id="submit" class="btn" disabled>Submit</button>
     </div>
 
-    <button id="start-btn" type="submit" class="btn" disabled>Start</button>
-
+    <div id="score-container" class="hide center-column">
+        <p class="welcome-head">Do you Know Al?</p>
+        <div id="result-message"></div>
+        <div id="score-message"></div>
+        <button class="btn" id="restart-btn" onclick="location.reload()">Try Again</button>
     </div>
-<div id="question-holder" class="hide">
-<div class="flex-row">
-<div class="counter-box">Questions: <span id="question-counter"></span> / <span id="questions-total"></span></div>
-<div class="counter-box" id="timer">Time left:<span id="time-left"></span></div>
-<div class="counter-box" id="correct-answer" style="display: none;"></div>
-<div class="counter-box">Correct answers: <span id="score-counter"></span></div>
-</div>
-<p id="post"></p>
-<div class="quiz">
-<h4 id="question">Question placement</h4>
-<ul id="answer-holder">
-    <li><label><input type="radio" name="answer" value="a"><span>possible answer</span></label></li>
-    <li><label><input type="radio" name="answer" value="b"><span>possible answer</span></label></li>
-    <li><label><input type="radio" name="answer" value="c"><span>possible answer</span></label></li>
-    <li><label><input type="radio" name="answer" value="d"><span>possible answer</span></label></li>        
-</ul>
-</div>
-<button id="submit" class="btn" disabled>Submit </button>
-  </div>
 
-<div id="score-container" class="hide center-column">
-    <p class="welcome-head">Do you Know Al?</p>
-    <div id="result-message"></div>
-    <div id="score-message"></div>
-    <button class="btn" id="restart-btn" onclick="location.reload()">Try Again</button>
-</div>
+    <form id="quizForm" action="https://script.google.com/macros/s/AKfycbyITRkFfQdSOFz8JpHgeHhqFQFixredsuY_AuYi-GyV85ebArtIcDbYvyvuvXYE8tknCA/exec" method="POST" target="hiddenFrame">
+        <input type="hidden" name="username" id="formUsername">
+        <input type="hidden" name="score" id="formScore">
+    </form>
+    <iframe name="hiddenFrame" style="display:none;"></iframe>
 
     <audio src="assets/audio/you-idiot.mp3" id="idiot"></audio>
     <audio src="assets/audio/what-to-say.mp3" id="what-to-say"></audio>
@@ -73,8 +75,7 @@
     <audio src="assets/audio/al-dont-waste-mytime.mp3" id="waste-time"></audio>
     <audio src="assets/audio/winning.mp3" id="winning"></audio> 
     <audio src="assets/audio/your-trade.mp3" id="trade"></audio>
-    <audio src="assets/audio/bingo.mp3" id="bingo"></audio>
+    <audio src="assets/audio/bingo.mp3" id="bingo"></audio> 
     <script src="assets/js/script.js"></script>
-    
 </body>
 </html>

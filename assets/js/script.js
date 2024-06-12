@@ -14,6 +14,7 @@ let username = document.querySelector("#username");
 *Game Variable
 */
 const maxQuestion = 10;
+let currentQuestionIndex = 0;
 /*
 *Validate Variables
 */
@@ -446,20 +447,30 @@ function shfl(a) {
 }
 
 function nextQ() {
-  // get next question of filtered and shuffled selection
-  if ((questions.Q = questions.sel.shift())) {
-    resetTimerDisplay(); // Reset the timer display to its original state
-    question.textContent = questions.Q.question;
-    answers.forEach((a, i) => {
-      a.textContent = questions.Q.choices[i];
-      a.previousElementSibling.checked = false;
-      a.previousElementSibling.disabled = false; // Re-enable answers
-    });
-    submitBtn.disabled = true; // Disable submit button initially
-    answerChecked = false;
-    startTimer(questions.Q.difficulty); // Start the timer for the new question
-    correctAnswerElement.style.display = "none"; // Hide the correct answer element
-  } else {
+  if (currentQuestionIndex < 10) {
+    // Check if the current question index is less than 10
+    if ((questions.Q = questions.sel.shift())) {
+      resetTimerDisplay(); // Reset the timer display to its original state
+      question.textContent = questions.Q.question;
+      answers.forEach((a, i) => {
+        a.textContent = questions.Q.choices[i];
+        a.previousElementSibling.checked = false;
+        a.previousElementSibling.disabled = false; // Re-enable answers
+      });
+      submitBtn.disabled = true; // Disable submit button initially
+      answerChecked = false;
+      startTimer(questions.Q.difficulty); // Start the timer for the new question
+      correctAnswerElement.style.display = "none"; // Hide the correct answer element
+
+      // Update the question counter
+      currentQuestionIndex++;
+      document.getElementById("question-counter").textContent =
+        currentQuestionIndex;
+    }
+  }
+
+  // Check if we've reached the last question
+  if (currentQuestionIndex === 10 || !questions.Q) {
     clearTimer(); // Clear the timer if no more questions
     endQuiz();
   }
@@ -518,6 +529,13 @@ function startQuiz() {
   nextQ(); // Start the quiz and load the first question
 }
 
+function sendQuizResult(username, score) {
+  // Set the values of the form fields
+  document.getElementById("formUsername").value = username;
+  document.getElementById("formScore").value = score;
+  // Submit the form
+  document.getElementById("quizForm").submit();
+}
 /*
 *Function to switch question screen to result screen
 * Show the user there score and give message and audio
@@ -527,21 +545,27 @@ function endQuiz() {
   questionHolder.classList.add("hide");
   scoreContainer.classList.remove("hide");
 
+  const username = document.getElementById("username").value;
+  const score = document.getElementById("score-counter").textContent;
+
+  // Send the quiz result
+  sendQuizResult(username, score);
+
   if (acount.textContent >= 10) {
-    resultMessage.innerHTML = `${username.value} you have reach god-tier`;
+    resultMessage.innerHTML = `${username} you have reach god-tier`;
     winning.play();
   } else if (acount.textContent >= 8) {
     giveMe.play();
-    resultMessage.innerHTML = `${username.value} getting better but still not there yet`;
+    resultMessage.innerHTML = `${username} getting better but still not there yet`;
   } else if (acount.textContent >= 5) {
     something.play();
-    resultMessage.innerHTML = `${username.value} you might have some potenial`;
+    resultMessage.innerHTML = `${username} you might have some potenial`;
   } else if (acount.textContent >= 3) {
     whatToSay.play();
-    resultMessage.innerHTML = `What was that ${username.value}`;
+    resultMessage.innerHTML = `What was that ${username}`;
   } else if (acount.textContent >= 0) {
     waste.play();
-    resultMessage.innerHTML = `Why even bother ${username.value}`;
+    resultMessage.innerHTML = `Why even bother ${username}`;
   }
   scoreMessage.innerHTML = `${acount.textContent}/${maxQuestion}`;
 }
