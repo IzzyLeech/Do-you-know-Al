@@ -72,15 +72,20 @@ function startTimer(difficulty) {
   }
 }
 
-/* Handle timer expiry */
 function timeOut() {
   alert("Time's up!");
   disableAnswers();
   showCorrectAnswer(); // Show the correct answer
   trade.play();
   toggleTimerDisplay(false); // Hide the timer
-  ++qcount.textContent; // Increment the question counter
-  setTimeout(nextQ, 1000);
+
+  // Check if the current question is the last one before incrementing the counter
+  if (currentQuestionIndex >= maxQuestion) {
+    setTimeout(endQuiz, 1000);
+  } else {
+    ++qcount.textContent; // Increment the question counter
+    setTimeout(nextQ, 1000);
+  }
 }
 
 /*Clear the timer */
@@ -447,9 +452,12 @@ function shfl(a) {
 }
 
 function nextQ() {
-  if (currentQuestionIndex < 10) {
-    // Check if the current question index is less than 10
-    if ((questions.Q = questions.sel.shift())) {
+  // Check if the current question index is less than 10
+  if (currentQuestionIndex < maxQuestion) {
+    // Get the next question from the shuffled selection
+    const nextQuestion = questions.sel.shift();
+    if (nextQuestion) {
+      questions.Q = nextQuestion;
       resetTimerDisplay(); // Reset the timer display to its original state
       question.textContent = questions.Q.question;
       answers.forEach((a, i) => {
@@ -462,19 +470,22 @@ function nextQ() {
       startTimer(questions.Q.difficulty); // Start the timer for the new question
       correctAnswerElement.style.display = "none"; // Hide the correct answer element
 
-      // Update the question counter
+      // Increment the question counter
       currentQuestionIndex++;
       document.getElementById("question-counter").textContent =
         currentQuestionIndex;
+    } else {
+      // If there are no more questions
+      clearTimer(); // Clear the timer if no more questions
+      endQuiz();
     }
-  }
-
-  // Check if we've reached the last question
-  if (currentQuestionIndex === 10 || !questions.Q) {
+  } else {
+    // If we've already asked 10 questions
     clearTimer(); // Clear the timer if no more questions
     endQuiz();
   }
 }
+
 
 /*Event Listener to filter question based on difficluty for when input has been click on
 * it will display question on that difficulty.
@@ -497,7 +508,6 @@ document.querySelector("#submit").onclick = (_) => {
   if (questions.Q) {
     // only after game is initialised ...
     const ans = document.querySelector("#answer-holder input:checked");
-    ++qcount.textContent;
     if (ans && ans.value == questions.Q.answer) {
       ++acount.textContent;
       bingo.play(); // Play correct sound
@@ -507,7 +517,13 @@ document.querySelector("#submit").onclick = (_) => {
     showCorrectAnswer(); // Show the correct answer
     clearTimer(); // Clear the timer when an answer is submitted
     disableAnswers(); // Disable answer options
-    setTimeout(nextQ, 2000); // Move to the next question after a short delay
+
+    // Check if the current question is the last one before moving to the next question
+    if (currentQuestionIndex >= maxQuestion) {
+      setTimeout(endQuiz, 2000);
+    } else {
+      setTimeout(nextQ, 2000); // Move to the next question after a short delay
+    }
   }
   answerChecked = false;
   selectedAnswer();
