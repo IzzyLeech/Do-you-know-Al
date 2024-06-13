@@ -35,12 +35,14 @@ const bingo = document.getElementById("bingo")
 
 /* Timer variables*/
 let timerInterval;
+let totalTimerInterval; // Interval for the total timer
 const timePerDifficulty = {
   easy: 0, // No time for easy questions
   medium: 20, // 20 seconds for medium questions
   hard: 10, // 10 seconds for hard questions
 };
 let timeLeft = 0;
+let totalTime = 0; // Total time taken by the user
 
 /* Update the timer display */
 function updateTimerDisplay() {
@@ -73,6 +75,7 @@ function startTimer(difficulty) {
 }
 
 function timeOut() {
+  clearInterval(totalTimerInterval); // Pause the total timer
   alert("Time's up!");
   disableAnswers();
   showCorrectAnswer(); // Show the correct answer
@@ -84,7 +87,10 @@ function timeOut() {
     setTimeout(endQuiz, 1000);
   } else {
     ++qcount.textContent; // Increment the question counter
-    setTimeout(nextQ, 1000);
+    setTimeout(() => {
+      startTotalTimer(); // Resume the total timer
+      nextQ();
+    }, 1000);
   }
 }
 
@@ -93,6 +99,28 @@ function clearTimer() {
   clearInterval(timerInterval);
   toggleTimerDisplay(false); // Hide the timer when cleared
 }
+
+// Start the total timer
+function startTotalTimer() {
+  totalTimerInterval = setInterval(() => {
+    totalTime++;
+    console.log(totalTime);
+  }, 1000);
+}
+
+// Stop the total timer
+function stopTotalTimer() {
+  clearInterval(totalTimerInterval);
+}
+
+// Function to format time in minutes and seconds
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes}m ${remainingSeconds}s`;
+}
+
+
 
 /* Disable answer options and submit button */
 function disableAnswers() {
@@ -543,6 +571,7 @@ function startQuiz() {
   let username = document.getElementById("username").value;
   document.getElementById("post").innerHTML = "Username:" + username;
   nextQ(); // Start the quiz and load the first question
+  startTotalTimer(); // Start the total timer
 }
 
 function sendQuizResult(username, score, difficulty) {
@@ -554,6 +583,7 @@ function sendQuizResult(username, score, difficulty) {
   document.getElementById("quizForm").submit();
 }
 
+
 /*
  *Function to switch question screen to result screen
  * Show the user their score and give message and audio
@@ -564,6 +594,8 @@ function endQuiz() {
 
   const username = document.getElementById("username").value;
   const score = document.getElementById("score-counter").textContent;
+  const totalTimeFormatted = formatTime(totalTime);
+  stopTotalTimer();
 
   // Capture the selected difficulty level
   let difficulty;
@@ -594,5 +626,5 @@ function endQuiz() {
     waste.play();
     resultMessage.innerHTML = `Why even bother ${username}`;
   }
-  scoreMessage.innerHTML = `${acount.textContent}/${maxQuestion}`;
+  scoreMessage.innerHTML = `${score} out of ${maxQuestion}.<br>Total time: ${totalTimeFormatted}`;
 }
